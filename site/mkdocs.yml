@@ -1,0 +1,69 @@
+site_name: AiBTC
+site_description: The AIBTC platform guide, developer tools, wallet signatures, public proofs and support.
+site_url: https://aibtc.io/
+repo_url: https://github.com/aibtcbot/aibtcbot
+repo_name: GitHub
+docs_dir: ../docs
+site_dir: ../site-build
+use_directory_urls: true
+theme:
+  name: material
+  custom_dir: overrides
+  language: en
+  font: false
+  logo: site/assets/images/aibtc-at.png
+  favicon: site/assets/images/aibtc-at.png
+  palette:
+    scheme: slate
+    primary: black
+    accent: grey
+  features:
+    - navigation.sections
+    - navigation.indexes
+    - navigation.footer
+    - navigation.top
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+plugins:
+  - search:
+      lang: en
+hooks:
+  - source_files.py
+extra_css:
+  - site/assets/stylesheets/aibtc-dark.css
+markdown_extensions:
+  - tables
+  - fenced_code
+  - attr_list
+  - toc:
+      permalink: true
+  - pymdownx.highlight
+  - pymdownx.superfences
+nav:
+  - Quick guide: README.md
+  - Platform guide:
+      - Accounts, wallets & addresses: docs/guide/01-accounts-wallets-addresses.md
+      - Create & launch: docs/guide/02-create-launch.md
+      - AIBTC Swap: docs/guide/03-swap.md
+      - Smart Covenant & liquidity: docs/guide/04-smart-covenant-liquidity.md
+      - AIBTC CORE: docs/guide/05-aibtc-core.md
+      - Explorer & Agents: docs/guide/06-explorer-agents.md
+      - Terminology: docs/terminology.md
+  - Build:
+      - Tools, API, MCP & npm: docs/build-tools.md
+      - Code examples: docs/code-examples.md
+  - Wallets & public proofs:
+      - Wallet signatures: docs/wallet-signatures.md
+      - Reference proof script: docs/reference-proof.md
+  - Support: docs/support.md
+  - Repository:
+      - Sources & changes: SOURCE_MAP.md
+      - Cloudflare setup: CLOUDFLARE.md
+validation:
+  nav:
+    not_found: warn
+    omitted_files: info
+  links:
+    not_found: warn
+    anchors: warn
