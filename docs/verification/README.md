@@ -40,19 +40,19 @@ Bitcoin authenticates the commitment reached by that chain. The full trade JSON 
 
 **Liquidity-pool reserves (from the proof log)** describe the BTC and tokens recorded in a market's pool. Virtual reserves are pricing parameters. The LP fee vault is a separate accounting field, not part of the market's trading reserve.
 
-A record describes a particular execution state; the public market API returns a cached snapshot. Keep `as_of` and `stale`, the market identity, and the record's log context with the comparison. A later API snapshot need not equal an earlier trade's after-values. Compare the same state before concluding that values disagree.
+Compare current public API reserves only with the after-values of this market's latest record. If the record you are examining has later records in that market, say so; a difference from current API values is not a mismatch. The API returns a cached snapshot: keep `as_of` and `stale`, the market identity, and the record's log context. Compare the same state and observation time before concluding that values disagree.
 
-The public market API and MCP cover the **top 250 markets by market cap**. That scope alone does not establish a complete all-market total. BTC reserves can be added when the dataset and observation context are complete; token reserves remain identified by asset and must not be combined as if different tokens were the same unit.
+The public market API and MCP provide the market-reserve fields used in this comparison. BTC reserves can be added when the dataset and observation context are complete; token reserves remain identified by asset and must not be combined as if different tokens were the same unit.
 
 ## Version and record identity
 
 These documents use **AiBTC Verification Method v2**. The Merkle V3 manifest and the `aibrc-merkle-reference-v3.py` filename identify different components, not a conflicting method version.
 
-The original method and prompt are copied without rewriting. The November 2026 documentation addition appends **step 7, Pool reserves**, and adds **question 5** to the prompt. Synchronizing those additions into the website's copied text is a separate web update. Preserve the method included in your copied material when comparing versions; do not silently replace its algorithms.
+The method and prompt here reproduce the finalized launch-release text without rewriting. The website will carry the same text from that release. Preserve the method included in your copied material when comparing versions; do not silently replace its algorithms.
 
 Identify a record by its **network, log epoch, sequence and event hash**. A sequence number alone can refer to a different record after an epoch change. This directory deliberately pins no pre-launch trade: a worked example will use the launch epoch so that its identifiers remain meaningful.
 
-The website supplies the record's current copyable method; this repository preserves the corresponding documentation and explicitly identified additions. Changes to the website's method should be reflected here without rewriting existing proof bytes.
+The website supplies the record's current copyable method; this repository preserves the corresponding finalized method and prompt. Changes to the website's method should be reflected here without rewriting existing proof bytes.
 
 ## 中文入口
 
@@ -66,7 +66,7 @@ The website supplies the record's current copyable method; this repository prese
 - [能核对什么](WHAT_AN_AI_CAN_CHECK.md)用中英说明证据范围；[公开接口](PUBLIC_ENDPOINTS.md)给出读取入口。
 - [参考脚本说明](../reference-proof.md)提供已有下载与运行方法；它的成功结果仍须与 OTS、Bitcoin 和业务公式检查分开。
 - 池子账面储备、虚拟定价参数、LP 费用和链上资金位置分别解释。不能把其中一种检查的通过当成全部检查通过。
-- 比较当前 API 时保留时间、市场和日志身份。公开快照仅覆盖市值前 250 个市场，不能仅凭它宣称已汇总所有市场。
+- 与当前 API 对比时，只用该市场最新一笔记录的成交后储备；如果已有后续记录，就说明这一点，不算不一致。保留 `as_of`、`stale`、市场和日志身份，核对可比的状态与观察时点。
 - 本目录不固定上线前的成交序号。正式实例将在新一期取材，避免清空换期后旧序号指向另一条记录。
 
 本次只补公开说明，不改变交易规则、存证内容或网站功能。

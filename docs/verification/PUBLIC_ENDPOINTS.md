@@ -34,7 +34,7 @@ Preserve returned `status` and `reason_code`. Invalid identifiers, missing mater
 | `GET /v1/public/markets/{market_key}` | One market's public details |
 | `GET /v1/public/markets/{market_key}/trades` | Recent public trades; not a complete historical replay dataset |
 
-The namespace covers the **top 250 public markets by market cap**. Use the returned `market_key`; do not invent one from a ticker. Multiple lookup matches are candidates, not a choice already made for the user.
+Use the returned `market_key`; do not invent one from a ticker. Multiple lookup matches are candidates, not a choice already made for the user.
 
 Market responses expose:
 
@@ -47,7 +47,7 @@ data_status
 
 The surrounding public response envelope also supplies `as_of` and `stale`. Reserve values are integer amount strings or `null`; BTC is measured in sats. Keep token quantities in the asset's integer units. `null` means the value is unavailable, not zero.
 
-For proof-log comparisons, retain the market identity and the observation time. A cached current snapshot can describe a different state from an earlier record. See [pool reserves and comparable data](README.md#pool-reserves-and-comparable-data).
+For a public API comparison, use only this market's latest record. If the supplied record has later records, explain that it is historical; that is not a mismatch. Retain the market identity, `as_of`, `stale` and the observation time because the API snapshot is cached. An out-of-scope or unavailable response is not a zero reserve or a reserve mismatch. See [pool reserves and comparable data](README.md#pool-reserves-and-comparable-data).
 
 The holder view is available at `GET /markets/{marketKey}/holders`, with an optional `cursor`. Its response includes `snapshotId`, `truncated`, `nextCursor`, `assetDecimals` and `totalSupplyBaseUnits`. Keep the same snapshot and follow its cursor; a truncated or incomplete holder list cannot establish complete token conservation.
 
@@ -60,7 +60,7 @@ MCP uses **POST** JSON-RPC for read-only tools; a plain GET returns 405. HTTP tr
 | Tool | Read |
 | --- | --- |
 | `find_market` | Resolve a name, ticker or official market link to candidates |
-| `list_markets` | A page of public top-250 summaries |
+| `list_markets` | A page of public market summaries |
 | `get_market` | Public details, including the same liquidity fields |
 | `get_recent_trades` | The latest public trades |
 

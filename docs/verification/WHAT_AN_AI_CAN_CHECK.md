@@ -12,7 +12,7 @@ Give an AI the original proof material and the [method](METHOD_v2.en.md), then a
 | Establish the Bitcoin commitment for the supplied material | Verify the manifest fingerprint, then execute the OTS operations and compare the claimed Bitcoin block root independently | Keep the canonical bytes and the exact block height/root. An announced anchor or pending OTS attestation is not a completed check |
 | Check token conservation when the complete state is available | Compare all relevant token-state categories with the published supply in the same units and context | Follow holder pagination and check `truncated`; include system/pool categories. A partial holder view alone cannot establish the total |
 | Recompute the recorded fee and LP-fee-vault movement | Compare `feeBtcSats` and the before/after fee-vault values with the named fee rule | The LP-vault delta is not automatically the platform's total income; the method identifies fee components recorded elsewhere |
-| Reproduce a published ranking with a fixed rule and complete inputs | Apply the stated scoring window, prices, weights and rounding | Requires the actual published scoring rule and full sample set. A top-250 current snapshot alone is not a complete contest dataset |
+| Reproduce a published ranking with a fixed rule and complete inputs | Apply the stated scoring window, prices, weights and rounding | Requires the actual published scoring rule and full sample set. A current snapshot alone is not a complete contest dataset |
 
 ## What this material does not establish on its own
 
@@ -36,7 +36,7 @@ Give an AI the original proof material and the [method](METHOD_v2.en.md), then a
 | 这些材料对应哪一个 Bitcoin 摘要承诺 | 核批次指纹，执行 OTS 运算，并独立比对对应 Bitcoin 区块根 | 使用原始字节及准确区块高度；仅有锚定说明或待完成的 OTS 材料不等于已经核验 |
 | 完整状态下代币总量是否守恒 | 将同一范围、同一单位下的相关余额、池子和系统类别与公开供应量核对 | 先检查持有人分页、快照与截断标记；不完整的持有人列表不能证明完整总量 |
 | 记录的手续费及 LP 费用账变化是否正确 | 按费用规则核对手续费和费用账前后值 | LP 费用账增量不能直接当成平台全部收入；其他费用分量按方法所列范围另看 |
-| 固定规则、完整数据下的公开榜单能否复算 | 按实际公布的评分窗口、价格、权重和取整重算 | 需要完整评分规则和样本；前 250 市场的当前快照不能替代完整比赛数据 |
+| 固定规则、完整数据下的公开榜单能否复算 | 按实际公布的评分窗口、价格、权重和取整重算 | 需要完整评分规则和样本；当前快照不能替代完整比赛数据 |
 
 | 仅凭这些材料不能确定的项目 | 还需要什么 |
 | --- | --- |
