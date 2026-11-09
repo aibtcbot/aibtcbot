@@ -67,7 +67,7 @@ Unified Ledger
 1. 1. **The Ledger is the only source of balances**: no second ledger, no hidden credit path around it.
 2. 2. **Only Available moves**: locked funds can't be used; a failed trade unlocks at once and never over-deducts.
 3. 3. **No double spending, no duplicate entries, no minting out of thin air**: every state correction is an appended event, replayable and auditable end to end.
-4. 4. **The server never holds users' private keys**: deposit addresses are per-user Taproot addresses; withdrawals must be signed locally by the user or broadcast through a strict co-signing settlement flow.
+4. 4. **Segregated Signing**: dual-input isolated control. Withdrawal and state-settlement transactions use PSBT (Partially Signed Bitcoin Transactions); the user's local wallet and the AiBTC protocol vault each independently sign the transaction inputs they control. The user's private key stays on the user's own device at all times. Without the user's local signature, the protocol vault's isolated signature is an incomplete input: the transaction cannot be broadcast or mined. **Tiered Verification**: byte-by-byte transaction rebuild. When funds trigger a withdrawal, the signing service rebuilds the standard raw transaction in full from the off-chain frozen order and compares the input sources, output addresses and change amounts byte by byte, ruling out any field tampering. **On-Chain Verification**: zero bridges, zero wrapped assets. No cross-chain bridges, sidechains or wrapped tokens. Every market order settlement and state transition is anchored into Bitcoin blocks through a Merkle root; third-party nodes, auditors or AI Agents can complete a deterministic independent replay using only the public on-chain proofs.
 
 ---
 
