@@ -75,3 +75,5 @@ The adapter also checks the allowed signature modes and the selected wallet iden
 ## Check copied proof material
 
 Use the [existing reference script](reference-proof.md). The script and checksum are preserved from the current GitHub repository.
+
+For the complete method, AI prompt, public endpoints and evidence scope, start with [Verify a trade and its pool reserves](verification/README.md).

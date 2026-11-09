@@ -220,6 +220,20 @@ We chose to build the underlying system and protocol standard from zero, free of
 
 We all love Bitcoin this much. This pure love — for decentralization, monetary freedom and technological ideals — is where AiBTC began and what brings its global community together.
 
+## Verify it yourself / 自己验证
+
+Use [AiBTC Verification Method v2](docs/verification/METHOD_v2.en.md) with the [website's public Explorer](https://aibtc.bot/explorer/events) to check a record and its recorded pool-reserve changes.
+
+**One trade, with the pool's reserve change, leaves a verifiable proof. Hand it to your AI to recompute independently.**
+
+The [English / 中文 entry](docs/verification/README.md) connects the [AI prompt](docs/verification/PROMPT.en.md), [public endpoints](docs/verification/PUBLIC_ENDPOINTS.md), [reference script](docs/reference-proof.md) and [evidence scope](docs/verification/WHAT_AN_AI_CAN_CHECK.md). Preserve original proof bytes and report the checks actually computed. Pool-reserve figures describe the market state recorded in the public log; compare snapshots at the same state and time.
+
+从[方法 v2](docs/verification/METHOD_v2.en.md)和[网站存证页](https://aibtc.bot/explorer/events)开始。
+
+**一笔交易，连同池子储备的变化，一起留下可验证的证明，交给你的 AI 独立复算。**
+
+[中英入口](docs/verification/README.md)说明如何核指纹、Merkle 关系、Bitcoin 锚定，以及方法覆盖的成交与池子储备。正式实例将取自上线后的日志期次，不固定可能被换期重用的测试序号。
+
 ## Read the full documentation
 
 | Read | What you will find |
