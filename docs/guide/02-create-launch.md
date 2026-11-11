@@ -334,7 +334,7 @@ AIBRC root deployment
     └─ Contract Address → the contract on that network
 ```
 
-The target contract still runs on its EVM network. A link is not a contract audit and does not open cross-chain swaps.
+The target contract runs on the EVM network identified by the reference.
 
 ## 2.8 Fees, Progress & Recovery {#c2-s8}
 

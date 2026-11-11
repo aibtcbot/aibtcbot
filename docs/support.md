@@ -47,7 +47,7 @@ Use a subject such as “Issue type | original order ID or txid”. The original
 
 Wallet addresses and txids are public on-chain identifiers. You can give them to the community volunteers and the platform Agent when really needed, but consider the privacy impact once they are linked to your identity. They are not the same kind of information as the private keys and seed phrases that control assets.
 
-Check the full domain before you visit, and watch for extra characters, look-alike letters and different suffixes. For example, aibtc.bot.example.com is not aibtc.bot. The HTTPS padlock alone does not prove a site is official.
+Check the full domain even when your browser shows a secure HTTPS connection. Watch for extra characters, look-alike letters and different suffixes. In aibtc.bot.example.com, the domain is example.com.
 
 Treat any stranger who contacts you first and asks you to move funds, download tools, allow remote control or sign as a potential scam, and verify independently through the channels listed on this page.
 
@@ -338,7 +338,7 @@ If you run into a suspected server fault or an unknown technical anomaly, email 
 - Bookmark the platform domains listed on this page and open them from your bookmarks; don't judge authenticity from search results or ads alone.
 - Check the full URL and where it actually redirects; watch for look-alike spellings, extra characters and fake suffixes. A change in letter case alone is not how you spot a fake site.
 - Check X and Telegram through the links on this page. Use third-party directories and market data sites as secondary references.
-- An avatar, nickname, group title, voice or video does not prove who someone is. Verify unsolicited DMs through the channels listed on this page first.
+- Verify unsolicited DMs through the official channels on this page, even if the profile, voice or video looks familiar.
 - Don't click links of unknown origin, and don't install apps, extensions, browser configurations or remote-control tools from unverified sources.
 - Don't open PDFs, archives or executables sent by strangers, even if the name looks like a report, a verification result or a technical fix.
 - Get updates for wallets, browsers and hardware devices only from their own official channels; keep them up to date and remove extensions that are no longer maintained or used.

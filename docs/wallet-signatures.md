@@ -305,15 +305,15 @@ Record → event_hash → inclusion path → treeRoot
 
 The explorer's **Copy proof** action provides the original record, inclusion path, checkpoint manifest, OTS file, and Bitcoin block information. When material for both an earlier and a later checkpoint is supplied, the corresponding append-only relationship can also be checked.
 
-**Record integrity and trade calculations are separate checks.** Merkle proofs check inclusion in a committed history. Trade results are recomputed under the applicable rules. OTS and Bitcoin establish the digest's anchor. Bitcoin does not execute the platform's internal ledger code.
+Use the Merkle proof to check the record's inclusion, OTS to trace its digest to a Bitcoin block, and the applicable trade formula to recompute the result.
 
-Digests are anchored in batches. Each in-app trade does not require its own Bitcoin transaction.
+One Bitcoin anchor can commit to a batch of trade records.
 
 ## 7. Cancellation, sign-out, and unknown outcomes
 
 If you cancel before submission, the page stops that attempt and checks that any late signing response still belongs to the active account and request.
 
-Once a request has been submitted or a transaction broadcast, its outcome must be checked using the original request or transaction ID. Closing the page, signing out, or reaching a timeout does not establish that nothing happened. An unknown outcome is recovered through the original request, not treated as a reason to create another payment.
+After submission or broadcast, check the result using the original request or transaction ID. If you close the page, sign out or hit a timeout, resume from the original request and check its status before sending another payment.
 
 ## 8. Reference verification script
 
@@ -347,7 +347,7 @@ For a complete proof copy that passes the applicable checks, the script prints:
 FINGERPRINTS_AND_MERKLE_MATCHED_OTS_BITCOIN_NOT_VERIFIED
 ```
 
-This means the record and manifest fingerprints and the Merkle relations match. **The script has not completed the OTS-to-Bitcoin verification.** Follow **AiBTC Verification Method v2**, included in the copied proof, to check the OTS operations, the actual Bitcoin block, and the supported trade formulas separately. The script does not mark those steps as verified.
+This result confirms the record and manifest fingerprints and their Merkle relations. Next, follow the included **AiBTC Verification Method v2** to verify the Bitcoin anchor and recompute the supported trade calculations.
 
 When checking a standalone inclusion or consistency bundle, success is reported as `MERKLE_MATCHED_ONLY`. Mismatched or invalid material produces an error result and a nonzero exit code.
 

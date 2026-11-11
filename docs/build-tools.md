@@ -112,7 +112,7 @@ Data scope and request allowance:
 | 503 · PUBLIC_BUSY | Temporarily unavailable; back off as Retry-After says |
 | A data field is null | Keep it as unknown; never treat it as zero |
 
-This version of the Public API does not include candlesticks, account balances, trade submission or executable quotes. Public trade records alone also cannot prove final on-chain settlement. For real actions, use the preview, authorization and confirmation of the matching trading flow.
+Follow a block swap's Bitcoin transaction ID for its confirmation status. To place an order, use the preview, authorization and confirmation steps of the matching trading flow.
 
 ## 3. MCP: let Agents find and understand markets {#build-s3}
 
@@ -253,7 +253,7 @@ Verify with the block, authorization and prior state
 Derive asset and account state
 ```
 
-Decoding alone does not mean an instruction has taken effect in the ledger. A full validity check also needs the network, rule version, block context and prior state.
+To check an instruction's ledger effect, use its decoded fields with the network, rule version, block context and prior state.
 
 The protocol specification, codec source, test vectors and local usage follow the protocol repository's official releases. Protocol developer resources and AiBTC's market interfaces have separate roles: the former explain asset rules, the latter provide the platform's public market data.
 
@@ -269,7 +269,7 @@ On a supported record page, click “Copy proof” to get that record and its av
 Original record → Copy proof → Run the verification → Keep the result and evidence
 ```
 
-An Agent can help explain the material, organize the steps and run the checks. A verification conclusion should come from verification actually run, not from AI text alone.
+Give your Agent the copied record and [Method v2](verification/METHOD_v2.en.md), and ask it to return the computed result of each check.
 
 ### 9.2 Public files: understand protocol state
 
@@ -277,11 +277,10 @@ Protocol-level public files describe event order, state commitments and the rela
 
 - Protocol-level block publishing uses heights that have reached 6 confirmations.
 - Event logs are split into segments by global sequence number; verification checks that they are continuous.
-- Data follows each event type's public rules; sensitive funds details do not become public just because a proof is published.
-- Protocol state and platform account balances are separate verification scopes; one cannot stand in for the other.
-- Published proofs and logs can be saved by anyone; never promise users that they can be taken back.
+- Each event type defines the fields published in its records.
+- Save the published proofs and log segments for local verification.
 
-OTS can prove the link between a record commitment and its Bitcoin time anchor. It does not replace recomputing the business rules, and on its own it cannot prove that a deposit is still on the current main chain.
+Use OTS to trace the batch commitment to its Bitcoin block. Use the published formulas to recompute a trade from its recorded inputs.
 
 ### 9.3 Reference verifier: recompute locally
 

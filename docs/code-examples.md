@@ -74,6 +74,4 @@ The adapter also checks the allowed signature modes and the selected wallet iden
 
 ## Check copied proof material
 
-Use the [existing reference script](reference-proof.md). The script and checksum are preserved from the current GitHub repository.
-
-For the complete method, AI prompt, public endpoints and evidence scope, start with [Verify a trade and its pool reserves](verification/README.md).
+Run the [Python reference script](reference-proof.md) on a copied proof. Use the [verification guide](verification/README.md) to check the Bitcoin anchor and recalculate trade amounts and reserves.

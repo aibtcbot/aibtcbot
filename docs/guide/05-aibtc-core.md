@@ -37,15 +37,15 @@ The industry's past answers came in two kinds: bridge assets out to another virt
 
 ## 1. What CORE is {#c5-s3}
 
-AIBTC CORE is the deterministic execution core of the AiBTC platform, with tightly drawn responsibilities:
+AIBTC CORE executes AiBTC's market and account rules.
 
-| Responsibility | What CORE does | What CORE never does |
-| --- | --- | --- |
-| **Account ledger** | Maintains each user's unified account (BTC and AIBRC balances) | Doesn't replace Bitcoin mainnet confirmation of on-chain transactions |
-| **Logic execution** | Runs the bonding curve, V2 AMM, R1 fee sharing and block buybacks under public rules | Doesn't set rules itself, or change root-deployment parameters written to Bitcoin |
-| **Event audit** | Writes every state change into a replayable event chain anchored to Bitcoin | Doesn't replace independent verification by users or Agents |
+| Responsibility | What CORE does |
+| --- | --- |
+| **Account ledger** | Maintains BTC and AIBRC balances in each user's unified account |
+| **Market execution** | Runs the bonding curve, V2 AMM, R1 fee sharing and block buybacks under the published rules and root-deployment parameters |
+| **Public records** | Records execution events in a hash chain and anchors batches to Bitcoin |
 
-CORE is not part of Bitcoin consensus, nor a separate public blockchain. It is a state machine where **the same input always gives the same output**: with the same rule version, starting state and event order, anyone running the reference verifier gets exactly the same result.
+**The same inputs give the same outputs.** Users and Agents can recompute the published calculations using the same rule version, starting state and event order.
 
 ---
 
@@ -205,20 +205,17 @@ The future of finance belongs to Autonomous Agents. CORE's interfaces are built 
 
 ---
 
-## 8. Boundaries: what CORE is not {#c5-s10}
+## 8. Execution and public verification {#c5-s10}
 
-To avoid any misunderstanding, these boundaries must be crystal clear:
+AIBTC Labs runs CORE as the execution node today. CORE records market events, Merkle proofs link records to batch checkpoints, and OpenTimestamps anchors each published batch digest to Bitcoin. Use the [verification guide](../verification/README.md) to check a copied record with your Agent.
 
-- **CORE is not Bitcoin consensus**: Bitcoin mainnet neither runs nor verifies CORE's internal ledger logic.
-- **On decentralized nodes**: CORE is currently run by AIBTC Labs as a single high-performance execution node; multi-node distributed execution and a user-level independent Agent witness network are planned directions.
-- **Limits of proof**: the hash chain, Merkle proof v2 and OTS record integrity and timestamps
-- **Replay scope**: what can be replayed is limited to the markets and data included in the mechanism
+Multi-node execution and independent Agent witnesses are directions for future development.
 
 ---
 
 ## Closing: giving Bitcoin its own high-speed execution layer {#c5-s11}
 
-AIBTC CORE doesn't aim to replace Bitcoin, but to supply the piece Bitcoin has always lacked: **fast, accurate and checkable — without leaving the security of Bitcoin mainnet assets.**
+AIBTC CORE gives Bitcoin assets fast execution under public rules, with records that people and Agents can check.
 
 ### **Bitcoin holds final settlement, CORE carries execution, and auditing belongs to everyone.**
 

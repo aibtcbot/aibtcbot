@@ -6,7 +6,7 @@ Don’t Trust. Verify. With Your Own Agent.
 
 Bitcoin lets people verify instead of trusting blindly. Agents give that ability a chance to leave the developer's terminal and enter everyone's daily life.
 
-AiBTC's V1 explorer is anti-design: it isn't there to make you believe — it hands you all the evidence. Raw records, batch manifests, OTS proofs and block numbers can all be copied out and computed offline. Hand that pack to any AI and it reaches its own conclusion — matching what the platform says, or not.
+Copy a trade's raw record, batch manifest, OTS proof and block height from the Explorer. Your Agent can recompute the fingerprints, check the Merkle path and trace the OTS proof to the Bitcoin block.
 
 ## How it works: how a trade becomes a fingerprint on Bitcoin {#c6-s1}
 
@@ -57,7 +57,7 @@ The record detail page has three areas:
 | Record layer · record | canonical_payload raw bytes, event_hash, previous_event_hash | For machines ① |
 | Proof layer · inclusion + checkpoint + ots + bitcoin | Batch manifest, digest, OTS file, block height & hash | For machines ②③④ |
 
-The display layer alone can't verify anything: hashes are computed over raw bytes, and reformatting breaks the match. So "Copy record" copies the full three-layer pack, not the display layer.
+**Copy proof** gives you all three layers. Use the original `canonical_payload` bytes to recompute the event hash.
 
 Public records contain no deposit/withdrawal addresses, txids or internal IDs — only command hashes, account-reference hashes and rule-version hashes.
 
@@ -78,7 +78,7 @@ Click "Copy proof" to get a JSON pack (schema AIBRC_EXPLORER_PROOF_COPY_V2):
 
 ```text
 {
-  material_integrity   ← local self-check in the page, not an independent result
+  material_integrity   ← page check before copying
   record               ← canonical_payload + event_hash + previous_event_hash
   inclusion            ← this record's Merkle inclusion proof
   display              ← human-readable fields
@@ -88,9 +88,9 @@ Click "Copy proof" to get a JSON pack (schema AIBRC_EXPLORER_PROOF_COPY_V2):
 }
 ```
 
-With this pack, you never need to visit AiBTC again. The platform going offline, a page redesign or a changed database won't affect evidence already copied. Open-source reference: [GitHub · aibtcbot/aibtcbot](https://github.com/aibtcbot/aibtcbot)
+Save the proof pack and method together to run the checks later. Open-source reference: [GitHub · aibtcbot/aibtcbot](https://github.com/aibtcbot/aibtcbot)
 
-## 4. Agent verification: hand the proof to an AI, get a verdict in three minutes {#c6-s5}
+## 4. Verify a trade with your Agent {#c6-s5}
 
 This is the explorer's core use. You don't need to understand hashes — just copy and paste.
 
@@ -100,7 +100,7 @@ This is the explorer's core use. You don't need to understand hashes — just co
 ① Click "Copy proof" on the record page
 ② Open any AI (Claude / ChatGPT / Gemini / a local model)
 ③ Paste "AiBTC Verification Method v2" + the proof pack
-④ Have the AI actually compute (not just read): each item match / mismatch / material missing
+④ Ask your Agent to compute and report the result of each check
 ```
 
 ### What the AI does
@@ -123,19 +123,9 @@ Report each result from the material actually copied
 | Manifest fingerprint | Compute and compare checkpoint_digest |
 | OTS and Bitcoin | Check the digest, attestation and independent block |
 | Append-only history | Check consistency when two authenticated heads are supplied |
-| Trade recomputation | Use the public AMM formula; curve-phase trades remain not covered |
+| Trade recomputation | Apply Method v2 to its matching AMM event and formula version |
 
-### What conclusion do you get?
-
-| What the AI can tell you | What the AI can't tell you |
-| --- | --- |
-| This record existed before block H; the platform can't change it | Whether unpublished business was omitted |
-| Amounts are correct under the public formula | Whether reserves are sufficient (needs reserve data) |
-| This record is included in the history through N | Whether unpublished business was omitted |
-
-The copy includes this record's inclusion proof; no full batch of records is needed.
-
-[Download the reference verifier](../../proofs/aibrc-merkle-reference-v3.py): Python 3 checks record and manifest fingerprints, inclusion and consistency. Verify OTS and Bitcoin independently by the method. Open-source reference: [GitHub · aibtcbot/aibtcbot/proofs](https://github.com/aibtcbot/aibtcbot/tree/main/proofs)
+Use the [Python reference script](../reference-proof.md) to start with fingerprints and Merkle checks. The [verification guide](../verification/README.md) walks through the Bitcoin anchor, trade calculations and comparison with current pool reserves.
 
 ## 5. Agent interaction: state intent, preview the trade, authorize in your wallet {#c6-s6}
 

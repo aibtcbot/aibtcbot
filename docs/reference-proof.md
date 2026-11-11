@@ -25,4 +25,4 @@ This checks the record and manifest fingerprints, inclusion proof and any suppli
 
 The GitHub script includes compatibility for LF and CRLF input files. Its checksum belongs to this file; no change to the trading website is required to use this copy.
 
-For the complete method, AI prompt, public endpoints and evidence scope, start with [Verify a trade and its pool reserves](verification/README.md).
+Find the [verification guide](verification/README.md) for Method v2, the AI prompt and public endpoints.

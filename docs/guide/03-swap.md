@@ -495,7 +495,7 @@ Wallet signs → node co-signs → broadcast to the network
 
 Signed is not broadcast, and broadcast is not in a block. A transaction gets on-chain confirmation only once it's in a block, and delivery still needs the protocol validity check.
 
-While waiting, track progress by the original order and transaction hash. A page timeout alone is no proof that the trade failed or wasn't paid.
+Use the original order and transaction hash to track progress, including after a page timeout. Check the original payment's status before sending another.
 
 ### Idempotent Recovery
 
