@@ -57,6 +57,7 @@ nav:
       - Wallet signatures: docs/wallet-signatures.md
       - Reference proof script: docs/reference-proof.md
   - Support: docs/support.md
+  - Product FAQ: FAQ.md
   - Repository:
       - Sources & changes: SOURCE_MAP.md
       - Cloudflare setup: CLOUDFLARE.md

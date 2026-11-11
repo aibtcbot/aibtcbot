@@ -1,11 +1,14 @@
 """Render the same Markdown on GitHub and the docs site; copy public downloads unchanged."""
+import re
 from pathlib import Path
 from mkdocs.structure.files import File, Files
 
 ROOT = Path(__file__).resolve().parent.parent
 
 def on_files(files, config):
-    paths = [ROOT / p for p in ('README.md', 'SOURCE_MAP.md', 'CLOUDFLARE.md')]
+    paths = [ROOT / p for p in (
+        'README.md', 'SOURCE_MAP.md', 'CLOUDFLARE.md', 'FAQ.md', 'llms.txt', 'llms-full.txt',
+    )]
     for folder in ('docs', 'proofs', 'site/assets'):
         paths.extend(sorted((ROOT / folder).rglob('*')))
     # Keep Material/search assets supplied by MkDocs before adding repository sources.
@@ -21,3 +24,14 @@ def on_files(files, config):
         if path.is_file():
             rendered.append(File.generated(config, path.name, abs_src_path=str(path)))
     return rendered
+
+
+def on_page_markdown(markdown, page, config, files):
+    if page.file.src_uri != 'FAQ.md':
+        return markdown
+    # Preserve the FAQ's original text and numbering in the rendered headings.
+    return '# ' + re.sub(
+        r'(?<=\n\n)\d+\. [^\n]+(?=\n\n|$)',
+        lambda match: ('### ' if match[0].endswith('?') else '## ') + match[0],
+        markdown,
+    )

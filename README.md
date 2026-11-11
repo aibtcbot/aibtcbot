@@ -245,6 +245,7 @@ The [English / 中文 entry](docs/verification/README.md) connects the [AI promp
 | [05 AIBTC CORE](docs/guide/05-aibtc-core.md) | Full platform guide |
 | [06 Explorer & Agents](docs/guide/06-explorer-agents.md) | Full platform guide |
 | [Build tools](docs/build-tools.md) | Public API, MCP, npm and integration examples |
+| [Product FAQ](FAQ.md) · [LLMs index](llms.txt) · [Full reference](llms-full.txt) | Product answers and reference text for people and Agents |
 | [Support](docs/support.md) | Wallet troubleshooting, deposits, withdrawals and official contacts |
 | [Wallet signatures](docs/wallet-signatures.md) | Signing messages, permission scopes and PSBT excerpts |
 | [Code examples](docs/code-examples.md) | Selected public-facing integration examples |
