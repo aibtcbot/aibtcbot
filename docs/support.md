@@ -10,7 +10,6 @@
 | Documentation | [aibtc.io](https://aibtc.io) |
 | Platform backup entry | [aibrc.fun](https://aibrc.fun) |
 | AIBRC protocol site | [aibrc.io](https://aibrc.io) |
-| Discord · tickets & community | [Join the Discord community](https://discord.gg/7fMyjpJvzW) |
 | Telegram · community | [t.me/aibtc](https://t.me/aibtc) |
 | X · announcements & news | [x.com/aibtc_bot](https://x.com/aibtc_bot) |
 | GitHub · wallet signatures & public proofs | [github.com/aibtcbot/aibtcbot](https://github.com/aibtcbot/aibtcbot) |
@@ -18,35 +17,29 @@
 
 Use the main domain first; if you have trouble reaching it, check the platform announcements or a backup entry. The protocol site is for the AIBRC specification and developer resources; do not confuse it with platform account pages.
 
-Telegram and X are for community chat and announcements. For the details of an account issue, use a community ticket or the support email; never post sensitive information in public group chats.
+Telegram and X are for community chat and announcements. Send account issue details to the support email. Keep sensitive information out of public group chats.
 
-## Read first | Before you open a ticket {#support-s1}
+## Read first | Before you email support {#support-s1}
 
-This support guide helps with the common connection, sign-in, signing, deposit and withdrawal issues on AiBTC. Before opening a ticket, look up the matching notes and try the suggested fixes; to understand trading, confirmation and account rules, you can also search the official docs.
+This support guide helps with common connection, sign-in, signing, deposit and withdrawal issues on AiBTC. Before emailing support, look up the matching notes and try the suggested fixes. The official docs cover trading, confirmation and account rules.
 
 For an action you have already submitted, check its progress in the original record. A page timeout does not mean the transaction failed; do not pay again to test whether it has recovered.
 
-A ticket reply may take about 48 hours, and longer on weekends, holidays or busy periods. Keep your original ticket or email and add information there, so the same issue is not submitted twice.
+Keep your original email and reply in the same thread with any new information.
 
 1. 1. Look up your issue in this support guide and complete the checks that match your situation.
 2. 2. Search the official docs and check the assets, addresses, fees and confirmation conditions involved.
-3. 3. If it is still unresolved, submit it through the Discord community or the support email listed on this page.
+3. 3. If it is still unresolved, send the details to the support email listed on this page.
 
-If you suspect your wallet or account has been stolen, don't just wait for a ticket reply: take the security steps in section 5 first.
-
-### Submit through Discord
-
-Join the Discord community and use the ticket entry announced on the server. If the entry shows as open-ticket, click Create ticket to open one, then talk with support staff inside that ticket; channel and button names follow what the server actually shows.
-
-Discord support happens through tickets on the community server. Do not treat unsolicited DMs, impersonated admins or so-called “dedicated technicians” as ticket replies. Do not hand over account details or sign at someone's request just because they use the same avatar or nickname, or say they are a volunteer.
+If you suspect your wallet or account has been stolen, take the security steps in section 5 immediately.
 
 ### Submit by email
 
 Support email: [aibtc.bot@aibtc.bot](mailto:aibtc.bot@aibtc.bot)
 
-Write the issue, original order ID, transaction hash and error message directly in the email body. Use text only in email: no images, attachments, archives, full log exports or signature files. If a screenshot is really needed, provide it in the community ticket as requested, with sensitive information covered first.
+Write the issue, original order ID, transaction hash and error message directly in the email body. Use plain text and leave out images, attachments, archives, full log exports and signature files.
 
-You can use this subject line: “Issue type | original order ID or txid”. Support reply time and Bitcoin confirmation time are two different things; opening a ticket does not change on-chain fee rates, confirmation order or the original order's result.
+Use a subject such as “Issue type | original order ID or txid”. The original order follows the applicable execution rules and Bitcoin confirmation conditions.
 
 ## Important security reminders {#support-s3}
 
@@ -313,7 +306,7 @@ If only the displayed balance looks different, first check the account, address,
 3. 3. Protect the linked email and social accounts: change their passwords, check for unusual sign-ins, and turn on the multi-factor verification they support.
 4. 4. If you confirm your seed phrase or private key has leaked, treat every wallet it controls as permanently unsafe and stop using it.
 5. 5. Create a new, independent wallet backup with a trusted wallet and keep it safe, then handle the remaining external assets according to the control you actually have. Importing the same leaked seed phrase into another app does not make it a new wallet.
-6. 6. Save the original addresses, orders, transaction hashes, times and suspicious links, and report through a community ticket or the support email.
+6. 6. Save the original addresses, orders, transaction hashes, times and suspicious links, and report through the support email.
 
 A leaked seed phrase does not become safe again by changing the wallet's unlock password. Check the other accounts and apps controlled by the same seed phrase too.
 
@@ -329,11 +322,11 @@ Support is provided jointly by community volunteers and the platform Agent, who 
 
 The platform connects external wallets non-custodially; CORE executes trades by fixed rules, and the public ledger and Merkle V3 proofs let anyone verify the trade records. Community support does not manually reorder trades, rewrite execution results, or modify, cancel or restore orders. Server anomalies are handled through the system's established procedures, never by manually rewriting the transaction history.
 
-If you run into a suspected server fault or an unknown technical anomaly, you can submit a ticket or ask in the community. Submit account or order details privately through a ticket. Never provide your private key, seed phrase, password or access token.
+If you run into a suspected server fault or an unknown technical anomaly, email support or ask in the community. Send account or order details privately by email. Never provide your private key, seed phrase, password or access token.
 
 ### 5.4 Protect your wallet and signatures
 
-- Never enter your seed phrase, private key or wallet backup into a website, chat box, ticket or unknown app, and never send them to any “customer service”.
+- Never enter your seed phrase, private key or wallet backup into a website, chat box, email or unknown app, and never send them to any “customer service”.
 - Don't photograph your seed phrase into chats, email or ordinary cloud storage. Keep the backup offline as your wallet officially recommends.
 - Before every signature, check the website, transaction type, amount, receiving address and fees; if the information is incomplete or you don't understand it, stop signing.
 - Don't sign “security verification”, “asset recovery” or unclear messages from strangers; signing a message can also grant permissions.
@@ -344,7 +337,7 @@ If you run into a suspected server fault or an unknown technical anomaly, you ca
 
 - Bookmark the platform domains listed on this page and open them from your bookmarks; don't judge authenticity from search results or ads alone.
 - Check the full URL and where it actually redirects; watch for look-alike spellings, extra characters and fake suffixes. A change in letter case alone is not how you spot a fake site.
-- Check X, Discord and Telegram from the links on this page; third-party directories or market data sites can be a secondary reference, never the only one.
+- Check X and Telegram through the links on this page. Use third-party directories and market data sites as secondary references.
 - An avatar, nickname, group title, voice or video does not prove who someone is. Verify unsolicited DMs through the channels listed on this page first.
 - Don't click links of unknown origin, and don't install apps, extensions, browser configurations or remote-control tools from unverified sources.
 - Don't open PDFs, archives or executables sent by strangers, even if the name looks like a report, a verification result or a technical fix.
@@ -361,7 +354,7 @@ For account, delivery or service problems with a third-party product, also conta
 
 ### 5.7 What should I include when I report an issue?
 
-In the community ticket or support email, explain the following in one message so support staff can locate the issue:
+Include the following details in one support email so support staff can locate the issue.
 
 | Information | Notes |
 | --- | --- |
@@ -369,14 +362,14 @@ In the community ticket or support email, explain the following in one message s
 | Original order ID or txid | Copied from the original record |
 | When it happened | Date, time and time zone |
 | Wallet and device | Wallet name and version, browser or app |
-| Page message | The error text first; screenshots only in a community ticket, redacted as requested |
+| Page message | The exact error text |
 | What you have tried | Reconnecting, refreshing, checking the original record, etc. |
 
 Use plain text in your first email, with no attachments. Do not provide complete signature files, raw cookies, session tokens, verification codes or logs that contain them.
 
 Do not post your email or other personal information in public group chats. A public address or txid helps lookups, but it also reveals links between on-chain activity and your account; share them only as needed.
 
-Keep replying in the same ticket or email thread for follow-ups; do not open new tickets to chase. Support replies and security handling never happen through unsolicited DMs.
+Keep replying in the same email thread for follow-ups. Treat unsolicited DMs that claim to be support replies as suspicious.
 
 ### 5.8 Terms & privacy
 
@@ -402,7 +395,7 @@ If you come across sensitive data or an issue that could affect real funds by ac
 
 ### Submitting a report
 
-Submit through the private ticket or the support email listed on this page. Where possible, include the affected page or feature, when you found it, a description, the possible impact, and the necessary reproduction steps with redacted screenshots or logs.
+Send the report to the support email listed on this page. Where possible, include the affected page or feature, when you found it, a description, the possible impact and the steps to reproduce the issue. Include redacted text excerpts when relevant.
 
 Never send private keys, seed phrases, passwords, access tokens or complete user data.
 
