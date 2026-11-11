@@ -299,7 +299,7 @@ Runs on the base trading rules, with no R1 rule fee.
 
 ### R1 · Tax Covenant
 
-R1 binds a rule fee rate and fee destination to the asset. Parameters are fixed at creation and enforced by AiBTC under deterministic rules; the public contract serves as the calculation reference.
+R1 binds a rule fee rate and fee destination to the asset. Parameters are fixed at creation and enforced by AiBTC CORE (application layer), not by AIBRC protocol indexers. The public contract serves as the deterministic calculation reference.
 
 - Active from: after graduation
 - Extra rule fee: 0–5%

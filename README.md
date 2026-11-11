@@ -11,7 +11,7 @@ Just as ERC defines asset standards and EVM provides the execution environment, 
 | Ethereum ecosystem | like | Bitcoin ecosystem (AIBRC × AiBTC) |
 | --- | --- | --- |
 | **ERC asset standard**<br>Asset issuance & interaction interfaces | ↔ | **AIBRC Protocol**<br>Covenant Inscription<br>Bitcoin L1 assets & address-level unified accounts |
-| **EVM execution environment**<br>Smart-contract logic execution | ↔ | **Smart Covenant + AiBTC execution stack**<br>Immutable on-chain covenant rules<br>AIBTC CORE execution & verification |
+| **EVM execution environment**<br>Smart-contract logic execution | ↔ | **Smart Covenant + AiBTC execution stack**<br>R1 covenant parameters are fixed per asset and anchored on Bitcoin; fees, rule-fee routing and buybacks are executed by AiBTC CORE and are publicly recomputable with the AIBRC reference code (reference/r1).<br>AIBTC CORE execution & verification |
 
 ## The AIBRC model at a glance
 
