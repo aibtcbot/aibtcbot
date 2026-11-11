@@ -320,7 +320,9 @@ If fraud or theft is involved, keep the relevant evidence and seek help from the
 
 Support is provided jointly by community volunteers and the platform Agent, who help investigate server faults, service anomalies and technical issues whose cause is not yet confirmed.
 
-The platform connects external wallets non-custodially; CORE executes trades by fixed rules, and the public ledger and Merkle V3 proofs let anyone verify the trade records. Community support does not manually reorder trades, rewrite execution results, or modify, cancel or restore orders. Server anomalies are handled through the system's established procedures, never by manually rewriting the transaction history.
+AiBTC: 1 Pool, 2 Swaps. Instant for speed, Block Swap for self-custody. Instant is driven by AIBRC programmable rules (R1) and executed at the application layer by AiBTC CORE (currently a single node). Block Swap settles atomically on Bitcoin L1 via PSBT, delivering assets directly to your wallet without custody. AiBTC never holds your private keys. Both swaps share one liquidity pool.
+
+Community support does not manually reorder trades, rewrite execution results, or modify, cancel or restore orders. Server anomalies are handled through the system's established procedures, never by manually rewriting the transaction history.
 
 If you run into a suspected server fault or an unknown technical anomaly, email support or ask in the community. Send account or order details privately by email. Never provide your private key, seed phrase, password or access token.
 

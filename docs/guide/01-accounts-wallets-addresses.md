@@ -1,8 +1,8 @@
 # 01 Accounts, Wallets & Addresses
 
-### Self-custodial Signing & Non-custodial Wallet Access
+### Wallet keys stay with you
 
-AiBTC is built on user-held authorization and self-sovereign design. Wallets connect non-custodially: AiBTC never obtains or stores the private keys of your external wallet. Sign-in establishes your account and its permissions; any on-chain action involving your wallet is confirmed and signed by you in that wallet.
+AiBTC: 1 Pool, 2 Swaps. Instant for speed, Block Swap for self-custody. Instant is driven by AIBRC programmable rules (R1) and executed at the application layer by AiBTC CORE (currently a single node). Block Swap settles atomically on Bitcoin L1 via PSBT, delivering assets directly to your wallet without custody. AiBTC never holds your private keys. Both swaps share one liquidity pool.
 
 Sign in with a Bitcoin wallet, email or a social account. Once connected, you can check your assets, trade, and use Launch and Liquidity at any time.
 
