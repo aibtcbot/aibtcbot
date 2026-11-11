@@ -41,7 +41,7 @@ AIBRC provides a shared asset language and account layer; AiBTC connects issuanc
 
 ## 2.1 Create & Launch {#c2-s1}
 
-Open Launchpad, fill in the asset details, choose an issuance mode and decide whether to make a creator first buy. Check the fees and creation summary before you submit; after confirming, follow progress under Created assets on the Assets page.
+Open Launchpad, fill in the asset details, choose an issuance mode and decide whether to make a creator first buy. Check the fees and creation summary before you submit. Fees come from your available balance; if it isn't enough and you signed in with a wallet, you can pay directly by signing in that wallet (addresses starting with bc1p or bc1q only). After confirming, follow progress under Created assets on the Assets page.
 
 ### Asset Details
 
@@ -87,7 +87,7 @@ Metadata CID → linked to the asset creation record
 
 A CID is derived from the content; changed content gets a new CID. IPFS pinning keeps the image and metadata, and the Bitcoin transaction records the protocol deployment. Together they make up the asset's display and provenance.
 
-An upload preview is not a completed pin. After you confirm creation and the fees are charged, the system keeps pinning, and the result shows on the original creation record. IPFS does not write the image into a Bitcoin block, and content is not reachable forever without ongoing pinning.
+An upload preview is not a completed pin. After you confirm creation and the payment goes through, the image and metadata are pinned, and the result shows on the original creation record. IPFS does not write the image into a Bitcoin block, and content is not reachable forever without ongoing pinning.
 
 ## 2.3 Root Deployment & Same-root Issuance {#c2-s3}
 
@@ -133,7 +133,7 @@ Before the public market opens, the creator can manually make one first buy at t
 
 ### Setting, Execution & Charging
 
-At creation, the system checks that available BTC covers the creation fee and the first-buy amount. First-buy funds are not deducted when you enter the amount, and are not locked in advance at creation.
+At creation, available BTC is checked against the first-buy amount, together with the creation fee when that is paid from the balance. First-buy funds are not deducted when you enter the amount, and are not locked in advance at creation.
 
 Once the launch reaches the stage that allows the first buy, the creator confirms the buy. At execution the system re-checks balance, trading authorization and market state; on success it deducts BTC and credits the bought AIBRC to the creator account.
 
@@ -341,14 +341,14 @@ The target contract runs on the EVM network identified by the reference.
 ### Fees
 
 - Platform creation fee: none for new launches at present
-- Bitcoin network fee: paid at the quote shown on the create page
+- Bitcoin network fee: paid at the create page's quote, from your balance or directly from your wallet by signing; the two differ slightly, so the page shows a range
 - Creator first buy: optional, separate from creation fees, charged when you execute it
 - Later trading fees: per the bonding-curve or post-graduation trading rules
 - Protocol withdrawal fees: after graduation, confirmed from the breakdown on the withdrawal page
 
 ```text
 Creation progress
-Confirm creation & fee charge
+Confirm creation & payment
     │
     ▼
 IPFS image & metadata pinning
@@ -371,7 +371,9 @@ The creator first buy is a separate action in the allowed pre-opening stage, not
 - Transaction broadcast: check confirmations by the original transaction hash.
 - First buy with insufficient balance, or explicitly rejected: that buy won't complete; follow the on-page prompt.
 - Page timeout or unknown result: check the original request and transaction records first, then decide the next step.
-- Name competition or deployment error: handled by each protocol branch's actual result; unfinished issuance is never treated as success.
+- Wallet payment not signed yet: go back to the create page and continue signing; nothing is broadcast until you sign.
+- Same name: launches with the same name can run at once; the first one confirmed on chain becomes the market. The others can only sell their existing first buy, and fees aren't refunded.
+- Deployment error: handled by each protocol branch's actual result; unfinished issuance is never treated as success.
 
 Network waits are not creation failures. Don't create again, pay again or resubmit under a new request ID just because the page timed out.
 

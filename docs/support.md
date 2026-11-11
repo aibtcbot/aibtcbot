@@ -285,7 +285,7 @@ If you see “Too many pending block swaps. Try again shortly.” or “The pend
 
 ### 4.6 A launch creation is stuck, or the page shows an unknown result
 
-Go back to the original creation record and check the actual progress of each protocol branch. A page timeout does not mean no branch ran; do not pay the creation fee again to test.
+Go back to the original creation record and check the actual progress of each protocol branch. A page timeout does not mean no branch ran; do not pay the creation fee again to test. If you're paying from your wallet and haven't signed yet, go back to the create page and continue signing; nothing is broadcast until you sign.
 
 For any action already submitted, check the original request, original order and original txid first; handle “not submitted” and “result unknown” separately.
 
