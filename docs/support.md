@@ -320,7 +320,7 @@ If fraud or theft is involved, keep the relevant evidence and seek help from the
 
 Support is provided jointly by community volunteers and the platform Agent, who help investigate server faults, service anomalies and technical issues whose cause is not yet confirmed.
 
-AiBTC: 1 Pool, 2 Swaps, both driven by AIBRC programmable rules (R1). Instant for speed: executed at the application layer by AiBTC CORE (currently a single node). Block Swap for self-custody: settles on Bitcoin L1 via PSBT, delivering assets directly to your wallet without custody. AiBTC never holds your private keys. Both swaps share one liquidity pool.
+AiBTC: 1 Pool, 2 Swaps, both driven by Smart Covenant. Instant for speed: executed at the application layer by AiBTC CORE (currently a single node). Block Swap for self-custody: settles on Bitcoin L1 via PSBT, delivering assets directly to your wallet without custody. AiBTC never holds your private keys. Both swaps share one liquidity pool.
 
 Community support does not manually reorder trades, rewrite execution results, or modify, cancel or restore orders. Server anomalies are handled through the system's established procedures, never by manually rewriting the transaction history.
 
