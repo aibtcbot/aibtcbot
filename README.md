@@ -169,7 +169,7 @@ Permanent pool locks · freeze protection at expiry
    Bound to the rule version
 ├─ Block Swap
    Co-signing handshake
-   Atomic swap in one Bitcoin transaction
+   Swap in one Bitcoin transaction
    Delivered at 1 conf, pooled at 2
 └─ LP market-making & covenant execution
    Block-based locks share trading fees

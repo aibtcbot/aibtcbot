@@ -2,7 +2,7 @@
 
 ### Wallet keys stay with you
 
-AiBTC: 1 Pool, 2 Swaps. Instant for speed, Block Swap for self-custody. Instant is driven by AIBRC programmable rules (R1) and executed at the application layer by AiBTC CORE (currently a single node). Block Swap settles atomically on Bitcoin L1 via PSBT, delivering assets directly to your wallet without custody. AiBTC never holds your private keys. Both swaps share one liquidity pool.
+AiBTC: 1 Pool, 2 Swaps, both driven by AIBRC programmable rules (R1). Instant for speed: executed at the application layer by AiBTC CORE (currently a single node). Block Swap for self-custody: settles on Bitcoin L1 via PSBT, delivering assets directly to your wallet without custody. AiBTC never holds your private keys. Both swaps share one liquidity pool.
 
 Sign in with a Bitcoin wallet, email or a social account. Once connected, you can check your assets, trade, and use Launch and Liquidity at any time.
 

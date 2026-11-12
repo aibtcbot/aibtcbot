@@ -122,7 +122,7 @@ On-chain deposits, withdrawals & Block Swap
 
 Execution and on-chain confirmation each do their own job, so frequent trading doesn't pay the repeated wait and network cost of going on-chain every time.
 
-## 3.3 Wallet Handshake & Single-transaction Atomic Swap · Block Swap {#c3-s3}
+## 3.3 Wallet Handshake & Single-transaction Swap · Block Swap {#c3-s3}
 
 In a step-by-step flow, buying with BTC from an external wallet and taking the asset back to that wallet usually means:
 
@@ -166,7 +166,7 @@ Your wallet signs the BTC inputs you provide; after its checks pass, the protoco
 
 Co-signing here means each side signs its own inputs in the same transaction. It is not one 2-of-2 multisig script holding all inputs.
 
-### Atomic Exchange
+### Exchange in One Bitcoin Transaction
 
 The BTC payment and the AIBRC transfer instruction go into the same transaction, instead of payment and token delivery as two separate transactions. Delivery must still satisfy AIBRC protocol rules; being signed or broadcast alone does not make it complete.
 
@@ -523,7 +523,7 @@ For traders: one route for speed, one for wallet delivery
 
 To trade continuously and rebalance, use Instant and skip the per-trade on-chain wait and network fees.
 
-To pay straight from your wallet's BTC and receive the asset at your linked address, use Block Swap: one wallet handshake joins one atomic swap.
+To pay straight from your wallet's BTC and receive the asset at your linked address, use Block Swap. One wallet handshake puts the BTC payment and AIBRC transfer instruction in a single Bitcoin transaction.
 
 You don't have to pick speed or on-chain delivery once and for all; choose the route by what each action is for.
 
