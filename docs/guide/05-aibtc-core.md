@@ -49,6 +49,17 @@ AIBTC CORE executes AiBTC's market and account rules.
 
 ---
 
+### How AiBTC and Hyperliquid execute trades
+
+| Execution system | Market model | How to check the result |
+| --- | --- | --- |
+| **AIBTC CORE** | Instant account trading and wallet-based Block Swap share a V2 market. | Use public execution records, Merkle proofs and Bitcoin batch anchors. |
+| **HyperCore** | Spot and perpetual markets run on an on-chain order book. | Read orders and trades committed through HyperBFT on Hyperliquid. |
+
+[HyperCore overview](https://hyperliquid.gitbook.io/hyperliquid-docs/hypercore/overview)
+
+---
+
 ## 2. Unified account: one address, one ledger {#c5-s4}
 
 CORE carries AIBRC's address-level balance model into the platform, keeping one clear unified-account ledger per user.

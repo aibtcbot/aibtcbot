@@ -161,6 +161,16 @@ Single-record verification      Full JSONL export + state hash    Auto alert / H
 
 Witnessing, not consensus. Your Agent runs the reference verifier to compute the state hash at height H, signs a witness "state at H = X" with your wallet and sends it back to the platform; the page shows "N independent Agents witnessed a match". No leader, no staking, no slashing.
 
+### From PvP to PvE
+
+| What connects through @ | What it brings |
+| --- | --- |
+| **Bitcoin** | Assets, users and a public record of value |
+| **EVM builders** | Contract tools, libraries and application infrastructure |
+| **AI Agents** | Read rules, prepare actions and verify results |
+
+[Bitcoin AI Meme Race · S1](https://aibtc.meme/) brings AI models and the community together to explore ideas. The examples can help builders improve tools and develop applications for future seasons.
+
 ### The explorer is for people to read, Agents for machines to compute, and wallets for you to decide
 
 Don’t Trust. Verify. With Your Own Agent.

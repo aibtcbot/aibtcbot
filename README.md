@@ -65,6 +65,19 @@ Some created works, some built protocols, some kept maintaining tools. Each wave
 
 One project spreading across protocols is like the "A-chain dog" and "B-chain dog" of other L1s, rebuilding assets and liquidity each time. Communities can share a culture while their apps can't work together; innovation keeps coming, but what has been built gets scattered.
 
+### Bitcoin ecosystem in figures
+
+| Metric | Figure |
+| --- | ---: |
+| Bitcoin price | $23K → $121K |
+| Bitcoin address growth in the inscription year, year over year | 9.9M addresses |
+| Bitcoin address growth over the next 14 months | +3.75M addresses |
+| Miner earnings from inscription and Rune mints | >9,600 BTC |
+| BRC-20 cumulative on-chain transactions | 103M |
+| Total secondary trading volume | >$70B |
+
+Figures from the November 13, 2026 overview, drawing on Dune and Total Secondary Trading Volume.
+
 ## The Bitcoin ecosystem today
 
 ### EVM ecosystem

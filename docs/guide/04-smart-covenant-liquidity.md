@@ -152,6 +152,15 @@ You can check an asset's covenant identity against the original Bitcoin transact
 
 Asset origin, rule identity and execution results thus have evidence that can be checked against each other.
 
+### R1 and X1 at a glance
+
+| Reference | What Bitcoin records | What an application uses |
+| --- | --- | --- |
+| **R1** | The reference contract address and the asset's fixed parameters `T` and `C` | Public calculations for fees, fee destinations and buyback plans. The reference contract has the same address on Ethereum, BNB Chain and Base. |
+| **X1** | The external application's chain ID and contract address | A link developers and Agents can follow using the application's ABI and RPC. |
+
+[R1 rule text](https://github.com/aibrc-code/aibrc/blob/main/spec/covenants/R1.md) · [X1 reference](https://github.com/aibrc-code/aibrc/blob/main/spec/covenants/X1.md)
+
 ## 4. EVM: the public rule base for Bitcoin assets {#c4-s4}
 
 ### Public Contract Reference
@@ -178,6 +187,17 @@ The reference contract focuses on expressing rules; fund operations go through t
 This makes EVM's contract capabilities a reusable base: one public standard can serve many Bitcoin assets, and developers and verifiers can work from the same rules.
 
 Let EVM bring capabilities to Bitcoin, instead of asking Bitcoin assets to bend to another ecosystem.
+
+### How programmable rules run
+
+| Approach | Where the rules come from | How applications use them |
+| --- | --- | --- |
+| **AIBRC + AiBTC Smart Covenant** | Bitcoin `OP_RETURN` records the reference and parameters. R1 provides public calculation code. | Developers and Agents can reuse the math. AIBTC CORE applies it to AiBTC trades, fee routing and buybacks. |
+| **EVM smart contracts** | The application deploys contract code on its EVM network. | State-changing calls execute on that network. |
+| **BRC2.0** | BRC-20's Programmable Module defines EVM operations. | Applications and indexers can integrate the EVM module. |
+| **Alkanes** | WASM contracts can be deployed in Bitcoin transaction witness data. | The Alkanes runtime executes contract calls. |
+
+[R1 code and examples](https://github.com/aibrc-code/aibrc/tree/main/reference/r1) · [BRC2.0 module](https://github.com/bestinslot-xyz/brc20-proposals/blob/main/000-programmable-module/index.md) · [Alkanes implementation](https://github.com/kungfuflex/alkanes-rs)
 
 ## 5. Liquidity: connecting the covenant to a real market {#c4-s5}
 
@@ -355,6 +375,8 @@ New apps for Bitcoin users
 ```
 
 Existing assets keep their versions and parameters; new capabilities join through explicit versions and integration rules. Rules keep evolving while existing commitments stay stable.
+
+The [R1 reserved directory](https://aibrc.io/spec/covenants/R1/#complete-frozen-english-text) outlines 15 directions, including x402 payments, Agents, language models, DAO governance, dividends, automatic liquidity, airdrops, bridges and oracles.
 
 ### Stablecoin Settlement
 

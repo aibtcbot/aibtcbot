@@ -118,6 +118,16 @@ Each protocol step confirms and shows its status separately; the branches don't 
 
 Same-root issuance establishes provenance. It does not merge balances across protocols, and does not open swaps or redemption automatically. Such uses must be connected later through explicit rules and implementation.
 
+### How launch models compare
+
+| Launch model | How assets start | Where trading continues |
+| --- | --- | --- |
+| **AiBTC fair launch** | One Bitcoin root connects the issuance paths. The AIBRC asset has 1B fixed supply and an optional paid creator first buy. | The bonding curve leads to a V2 liquidity pool after graduation. |
+| **Pump.fun fair launch** | An SPL token launches with a bonding curve on Solana. | Completed curves migrate their liquidity to PumpSwap. |
+| **Mint-based launch** | Participants mint under the asset protocol's rules. | A separate market brings together buyers and sellers. |
+
+[Pump.fun launch and migration documentation](https://github.com/pump-fun/pump-public-docs/blob/main/docs/PUMP_PROGRAM_README.md)
+
 ## 2.4 Creator First Buy {#c2-s4}
 
 Before the public market opens, the creator can manually make one first buy at the bonding-curve price. It is a real purchase, not a free allocation, and entering an amount does not execute it.

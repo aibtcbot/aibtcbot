@@ -37,6 +37,17 @@ Instant and Block Swap serve different needs. They share the market and its pric
 
 AIBTC's dual-track Swap is more than two buttons: it fully connects the speed of account trading, wallet authorization and on-chain delivery on Bitcoin.
 
+### How the trading routes compare
+
+| Trading route | How you trade | Where it completes |
+| --- | --- | --- |
+| **AiBTC Instant** | Use your AiBTC balance. Fills in seconds with no Bitcoin network fee per fill. | Your AiBTC account |
+| **AiBTC Block Swap** | Pay from your BTC wallet and sign a PSBT. Your keys stay with you. | Bitcoin L1 · Swap at 1 block · Pool entry at 2 |
+| **Uniswap v2, v3 and v4** | Swap against an on-chain liquidity pool with your wallet. | The pool's network |
+| **Peer-to-peer listings** | Pick an offer and trade with the seller. | The transaction for that offer |
+
+[Uniswap AMM overview](https://developers.uniswap.org/docs/get-started/concepts/how-uniswap-works)
+
 ## 3.1 Choose Your Route {#c3-s1}
 
 ### Instant · Buy & sell inside your account
