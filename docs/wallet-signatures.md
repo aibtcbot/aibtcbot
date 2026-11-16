@@ -200,9 +200,11 @@ transaction.outs.forEach((actual, i) => {
 
 Implementation references: `handshake-wallet-psbt-adapter.ts`, `handshake-wallet-psbt.ts`, and `handshake-core.ts`.
 
-## 5. Withdrawals: browser confirmation and PSBT co-signing
+## 5. Withdrawals: mutual signing and co-signing
 
-### Confirming a BTC withdrawal
+### BTC withdrawal · Mutual signing
+
+BTC withdrawal (mutual signing): the receiving address is authorized by the user's signature, and withdrawals pay only to that address; Atom Unit verifies, then signs.
 
 The BTC withdrawal page displays the destination, total balance debit, estimated amount received, fee rate, and maximum miner fee. If a wallet is connected, it signs a message confirming these details before the page submits the withdrawal request.
 
@@ -229,23 +231,23 @@ This message signature stays in the browser. It confirms the request; it is not 
 
 Implementation references: `withdrawal-confirmation.ts` and `withdrawal-confirmation-copy.ts`.
 
-### Withdrawing AIBRC through the PSBT handshake
+### AIBRC withdrawal · PSBT co-signing
 
-AIBRC withdrawals use the transaction-signing flow described above:
+AIBRC withdrawal and Block Swap (co-signing): the user's wallet and Atom Unit each sign their own inputs in the same Bitcoin transaction. Both withdrawal flows use the same [Atom Unit](atom-unit.md#withdrawals-and-signing).
 
 ```text
 Review the asset amount, destination, and fees
     ↓
 Your wallet signs the designated user inputs
     ↓
-The platform checks the transaction and signs its input
+Atom Unit checks the transaction and signs its input
     ↓
-The transaction is broadcast and its txid recorded
+The local Bitcoin Core node broadcasts and the TxID is recorded
     ↓
 Chain confirmations and protocol results are tracked
 ```
 
-Your wallet signs the payment inputs you provide. The platform signs its authorization input. Before co-signing, it checks the submitted transaction and signatures against the original request and preview, including the recipient.
+Your wallet signs the inputs you provide. Atom Unit signs its authorization input. Before co-signing, it checks the submitted transaction and signatures against the original request and preview, including the recipient.
 
 ## 6. From authorization to execution and public proofs
 

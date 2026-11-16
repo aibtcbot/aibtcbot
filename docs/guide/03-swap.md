@@ -2,46 +2,34 @@
 
 Hybrid DEX Engine
 
-### AIBTC Swap, two tracks · Instant execution & on-chain swaps
+### One pool, two Swaps
 
-Dual-track Swap · Instant & Block Swap
+Instant Swap: uses the available balance of the AiBTC account; deposit first if it is not enough.
 
-Instant trades don't wait for a block each time; Block Swap settles the BTC payment and the AIBRC delivery in one Bitcoin transaction.
-
-AiBTC connects in-account instant execution and wallet-based on-chain swaps to the same AIBRC market. You can trade continuously from your account balance, or pay with BTC from an external wallet and receive the swapped asset at your own on-chain address.
-
-Instant and Block Swap serve different needs. They share the market and its pricing base, but differ in source of funds, authorization, where the asset lands and how confirmation works. Pending-aware pricing, layered confirmation and dynamic limits let the two routes work together at their different speeds.
+Block Swap: pays with BTC straight from the wallet, with no deposit to AiBTC first; the AIBRC received goes straight to the linked wallet.
 
 ```text
-                 AIBRC market
-                       │
-      ┌────────────────┴────────────────┐
-      ▼                                 ▼
- Instant                           Block Swap
-      │                                 │
- aibtc account balance             BTC from an external wallet
- Account trading authorization     Handshake · PSBT co-signing
- Buy / Sell                        BTC → AIBRC
-      │                                 │
- Executed by AIBTC CORE            One Bitcoin transaction
- Account balances updated          BTC payment + AIBRC delivery
-      │                                 │
- No per-trade block wait           Delivered at 1 confirmation
-                                   Pooled at 2 confirmations
-      │                                 │
-      └────────────────┬────────────────┘
-                       ▼
-         Same market · shared pricing
-        Continuous trading & liquidity
+                         Same AIBRC market
+                                │
+              ┌─────────────────┴─────────────────┐
+              ▼                                   ▼
+         Instant Swap                         Block Swap
+ Deposit if needed → account balance     Wallet BTC → PSBT co-signing
+              │                                   │
+ Buy or sell → CORE updates balances     AIBRC → linked wallet
+ Optional withdrawal                     Delivered at 1 confirmation
+                                         Pooled at 2 confirmations
+              │                                   │
+              └─────────────────┬─────────────────┘
+                                ▼
+                    One pool · shared pricing
 ```
-
-AIBTC's dual-track Swap is more than two buttons: it fully connects the speed of account trading, wallet authorization and on-chain delivery on Bitcoin.
 
 ### How the trading routes compare
 
 | Trading route | How you trade | Where it completes |
 | --- | --- | --- |
-| **AiBTC Instant** | Use your AiBTC balance. Fills in seconds with no Bitcoin network fee per fill. | Your AiBTC account |
+| **AiBTC Instant Swap** | Use your AiBTC balance. Fills in seconds with no Bitcoin network fee per fill. | Your AiBTC account |
 | **AiBTC Block Swap** | Pay from your BTC wallet and sign a PSBT. Your keys stay with you. | Bitcoin L1 · Swap at 1 block · Pool entry at 2 |
 | **Uniswap v2, v3 and v4** | Swap against an on-chain liquidity pool with your wallet. | The pool's network |
 | **Peer-to-peer listings** | Pick an offer and trade with the seller. | The transaction for that offer |
@@ -50,11 +38,11 @@ AIBTC's dual-track Swap is more than two buttons: it fully connects the speed of
 
 ## 3.1 Choose Your Route {#c3-s1}
 
-### Instant · Buy & sell inside your account
+### Instant Swap · Buy & sell inside your account
 
 For users who already hold BTC or AIBRC on AiBTC and want to trade continuously or rebalance.
 
-- Funds: available balance in your AiBTC account
+- Funds: available balance in your AiBTC account. Deposit first if it is not enough.
 - Direction: buy and sell
 - Result: BTC and AIBRC balances in your account are updated
 - Execution: by AIBTC CORE, with no block wait per trade
@@ -64,7 +52,7 @@ For users who already hold BTC or AIBRC on AiBTC and want to trade continuously 
 
 For users who want to pay with BTC from an external wallet and keep the AIBRC they receive in their linked wallet.
 
-- Funds: BTC in your external wallet
+- Funds: BTC in your external wallet. No deposit to AiBTC first.
 - Direction now: BTC → AIBRC
 - Available for: graduated AIBRC markets
 - Authorization: wallet handshake, PSBT construction and co-signing by both sides
@@ -75,7 +63,7 @@ During the bonding-curve stage, trade with Instant under curve rules; un-graduat
 
 Block Swap does not yet support the reverse AIBRC → BTC route. To sell AIBRC from your wallet with Instant, first deposit it into your account through the AIBRC deposit flow.
 
-## 3.2 Instant Trading & Deterministic Execution {#c3-s2}
+## 3.2 Instant Swap & Deterministic Execution {#c3-s2}
 
 With Instant, AIBTC CORE handles quoting, execution and account updates. You don't build, sign and broadcast a Bitcoin transaction for every trade, so you can keep trading from one account.
 
@@ -135,14 +123,12 @@ Execution and on-chain confirmation each do their own job, so frequent trading d
 
 ## 3.3 Wallet Handshake & Single-transaction Swap · Block Swap {#c3-s3}
 
-In a step-by-step flow, buying with BTC from an external wallet and taking the asset back to that wallet usually means:
+Block Swap: pays with BTC straight from the wallet, with no deposit to AiBTC first; the AIBRC received goes straight to the linked wallet.
 
-Deposit BTC → wait for confirmation → buy on the platform → request withdrawal → wait for confirmation again
-
-Block Swap combines the BTC payment and the AIBRC transfer instruction in one Bitcoin mainnet transaction — no deposit, buy and withdrawal in turn. Once the transaction confirms and passes protocol checks, the asset is delivered straight to your linked wallet.
+The BTC payment and AIBRC transfer instruction go into the same Bitcoin transaction.
 
 ```text
-Your external wallet                    Protocol execution node
+Your external wallet                    Atom Unit
     │                                       │
 BTC payment & network-fee inputs        Inventory & protocol authorization inputs
     │                                       │
@@ -173,17 +159,19 @@ The transaction is built together using the standard PSBT format. You check the 
 
 ### Co-signing
 
-Your wallet signs the BTC inputs you provide; after its checks pass, the protocol execution node automatically signs the authorization inputs it is responsible for — no manual approval per trade.
+AIBRC withdrawal and Block Swap (co-signing): the user's wallet and Atom Unit each sign their own inputs in the same Bitcoin transaction.
+
+Broadcast: outside Atom Unit, by the local Bitcoin Core node.
 
 Co-signing here means each side signs its own inputs in the same transaction. It is not one 2-of-2 multisig script holding all inputs.
 
-### Exchange in One Bitcoin Transaction
+### Swap in One Bitcoin Transaction
 
 The BTC payment and the AIBRC transfer instruction go into the same transaction, instead of payment and token delivery as two separate transactions. Delivery must still satisfy AIBRC protocol rules; being signed or broadcast alone does not make it complete.
 
 ### Requirements & Where Assets Go
 
-Connect and confirm your linked wallet → enter the BTC amount → check quote & fees → sign in wallet → node co-signs & broadcasts → delivered on-chain
+Connect and confirm your linked wallet → enter the BTC amount → check quote & fees → sign in wallet → Atom Unit co-signs → Bitcoin Core broadcasts → delivered on-chain
 
 - Minimum swap: 10,000 sats (0.0001 BTC)
 - Wallet funds: besides the swap amount, keep BTC for the network fee and the transaction outputs
@@ -490,7 +478,7 @@ Waiting → AIBTC CORE executing
 Quote & handshake
     │
     ▼
-Wallet signs → node co-signs → broadcast to the network
+Wallet signs → Atom Unit co-signs → Bitcoin Core broadcasts
                                            │
                                            ▼
                               Awaiting block confirmation

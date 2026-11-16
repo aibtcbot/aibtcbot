@@ -2,7 +2,7 @@
 
 ### Wallet keys stay with you
 
-AiBTC: 1 Pool, 2 Swaps, both driven by AIBRC programmable Smart Covenant. Instant for speed: executed at the application layer by AiBTC CORE (currently a single node). Block Swap for self-custody: settles on Bitcoin L1 via PSBT, delivering assets directly to your wallet without custody. AiBTC never holds your private keys. Both swaps share one liquidity pool.
+AiBTC: 1 Pool, 2 Swaps, both driven by AIBRC programmable Smart Covenant. Instant Swap for speed: executed at the application layer by AiBTC CORE (currently a single node). Block Swap for self-custody: settles on Bitcoin L1 via PSBT, delivering assets directly to your wallet without custody. AiBTC never holds your private keys. Both swaps share one liquidity pool.
 
 Sign in with a Bitcoin wallet, email or a social account. Once connected, you can check your assets, trade, and use Launch and Liquidity at any time.
 
@@ -77,7 +77,13 @@ Proves you own the address. No on-chain transfer and no network fee.
 
 ### Transaction Signature · PSBT (Partially Signed Bitcoin Transaction)
 
-Used for Block Swap, AIBRC protocol deposits, withdrawals and similar actions. Review the transaction in your wallet and sign; the system then completes co-signing, broadcast and confirmation.
+Used for Block Swap and AIBRC protocol deposits and withdrawals. Review the transaction in your wallet and sign.
+
+AIBRC withdrawal and Block Swap (co-signing): the user's wallet and Atom Unit each sign their own inputs in the same Bitcoin transaction.
+
+BTC withdrawal (mutual signing): the receiving address is authorized by the user's signature, and withdrawals pay only to that address; Atom Unit verifies, then signs.
+
+Broadcast: outside Atom Unit, by the local Bitcoin Core node.
 
 Sign-in: confirms who you are.
 

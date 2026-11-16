@@ -169,6 +169,8 @@ The AIBTC CORE ledger records it and the account balance updates
 
 Each account has its own fixed BTC deposit address. Copy and check it from your own deposit page; never use a “dedicated address” from a DM, a group chat or a stranger.
 
+See [the Atom Unit reserve model](atom-unit.md#reserves) for how deposits and reserves are recorded.
+
 Bitcoin block times vary, so arrival cannot be guaranteed within a fixed number of minutes. A deposit below the minimum, or one that does not meet the asset requirements, is handled by the reason shown in its record; do not keep waiting for it as an ordinary confirmation.
 
 ### 3.2 How do I deposit AIBRC?
@@ -202,43 +204,30 @@ Whether recovery has finished follows the original transaction and the page stat
 
 Normal withdrawals are processed automatically by the rules, without manual approval of each one. First check the asset, receiving address, amount and fees, complete any required authorization or signature on the page, then track it through the original withdrawal record.
 
-How deposits and withdrawals fit together:
+Instant Swap: uses the available balance of the AiBTC account; deposit first if it is not enough.
+
+Block Swap: pays with BTC straight from the wallet, with no deposit to AiBTC first; the AIBRC received goes straight to the linked wallet.
 
 ```text
-Deposit
-    ↓
-Bitcoin L1 transfer and protocol verification
-    ↓
-AIBTC CORE ledger record
-    ↓
-On-chain withdrawal · L1 Settlement / Handshake Exit
-    ├─ Authorization: verify and sign for the asset
-    ├─ Verification: processed automatically by the rules
-    ├─ Fees: check the service fee and network fee before submitting
-    └─ Tracking: original record, transaction hash and confirmations
-    ↓
-Delivered on-chain to the receiving address · look up by txid
+Deposit if needed → AiBTC account balance → Instant Swap → Optional withdrawal
+Wallet BTC        → Block Swap PSBT      → AIBRC in your linked wallet
 ```
 
-The BTC and AIBRC withdrawal steps are described separately below.
+Both withdrawal flows use the same [Atom Unit](atom-unit.md#withdrawals-and-signing).
 
 ### 4.2 BTC withdrawal
 
+BTC withdrawal (mutual signing): the receiving address is authorized by the user's signature, and withdrawals pay only to that address; Atom Unit verifies, then signs.
+
 ```text
-Choose BTC withdrawal
+Assets → BTC withdrawal → Check amount, authorized address and fees
     ↓
-Check the receiving address, amount and fees
+Atom Unit verifies and signs
     ↓
-Complete the required authorization and submit
-    ↓
-The system processes the queue, signs and broadcasts
-    ↓
-Check the original record and the Bitcoin transaction hash
-    ↓
-Wait for the receiving wallet to show it and for on-chain confirmation
+Local Bitcoin Core node broadcasts → Follow the original record and TxID
 ```
 
-Queued is not failed. Inventory availability, earlier requests and network conditions can affect how fast it moves. If a request is already in progress, check that original request first; do not submit again.
+If a request is already in progress, check that original request first before submitting again.
 
 ### 4.3 AIBRC protocol withdrawal
 
@@ -249,20 +238,22 @@ Check the asset, amount, address and fees
     ↓
 Your wallet signs the inputs you are responsible for
     ↓
-The execution node verifies the rules and completes co-signing
+Atom Unit verifies the rules and co-signs
     ├─ Method: both sides sign · Co-signing
     ├─ Processing: normally no manual approval of each one
     ├─ Verification: checked by the rules · Code-Enforced
     └─ Fees: as in the preview you confirmed
     ↓
-The system broadcasts the fully signed transaction
+The local Bitcoin Core node broadcasts the fully signed transaction
     ↓
 Bitcoin confirmation + AIBRC delivery verification
     ↓
 The asset arrives at the receiving address · look up by txid
 ```
 
-Co-signing means each side signs the inputs it is responsible for in the same transaction; it does not mean every input uses the same 2-of-2 multisig script. The wallet makes the user's signature; the broadcast is done by the wallet or system that the flow designates, so signing and broadcasting are not one step.
+AIBRC withdrawal and Block Swap (co-signing): the user's wallet and Atom Unit each sign their own inputs in the same Bitcoin transaction. Co-signing does not mean every input uses the same 2-of-2 multisig script.
+
+Broadcast: outside Atom Unit, by the local Bitcoin Core node.
 
 AIBRC that has not graduated cannot be withdrawn yet; after graduation, use the protocol withdrawal flow the page provides. If the page says the address is not linked, the wallet's signing ability is not compatible, or a request is already in progress, handle that prompt first.
 
@@ -320,7 +311,7 @@ If fraud or theft is involved, keep the relevant evidence and seek help from the
 
 Support is provided jointly by community volunteers and the platform Agent, who help investigate server faults, service anomalies and technical issues whose cause is not yet confirmed.
 
-AiBTC: 1 Pool, 2 Swaps, both driven by AIBRC programmable Smart Covenant. Instant for speed: executed at the application layer by AiBTC CORE (currently a single node). Block Swap for self-custody: settles on Bitcoin L1 via PSBT, delivering assets directly to your wallet without custody. AiBTC never holds your private keys. Both swaps share one liquidity pool.
+AiBTC: 1 Pool, 2 Swaps, both driven by AIBRC programmable Smart Covenant. Instant Swap for speed: executed at the application layer by AiBTC CORE (currently a single node). Block Swap for self-custody: settles on Bitcoin L1 via PSBT, delivering assets directly to your wallet without custody. AiBTC never holds your private keys. Both swaps share one liquidity pool.
 
 Community support does not manually reorder trades, rewrite execution results, or modify, cancel or restore orders. Server anomalies are handled through the system's established procedures, never by manually rewriting the transaction history.
 
