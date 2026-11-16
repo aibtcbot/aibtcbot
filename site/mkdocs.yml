@@ -48,6 +48,7 @@ nav:
       - AIBTC Swap: docs/guide/03-swap.md
       - Smart Covenant & liquidity: docs/guide/04-smart-covenant-liquidity.md
       - AIBTC CORE: docs/guide/05-aibtc-core.md
+      - Atom Unit Protocol: docs/atom-unit.md
       - Explorer & Agents: docs/guide/06-explorer-agents.md
       - Terminology: docs/terminology.md
   - Build:

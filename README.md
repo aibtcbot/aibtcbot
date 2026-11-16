@@ -177,11 +177,11 @@ Permanent pool locks · freeze protection at expiry
 ```
 
 ```text
-├─ Instant
-   Trading in seconds on AIBTC CORE
+├─ Instant Swap
+   AiBTC account balance → execution in seconds on AIBTC CORE
    Bound to the rule version
 ├─ Block Swap
-   Co-signing handshake
+   Wallet BTC → PSBT co-signing → AIBRC in your linked wallet
    Swap in one Bitcoin transaction
    Delivered at 1 conf, pooled at 2
 └─ LP market-making & covenant execution
@@ -205,6 +205,12 @@ Explore uses for sub-assets
    Voucher redemption & on-chain burn
 └─ Open proposals
 ```
+
+## Atom Unit Protocol
+
+Users and their Agents can verify their own on-chain reserves. Atomic unit model: no unified reserve address, no fund consolidation.
+
+[Reserves, deposits and withdrawals](docs/atom-unit.md)
 
 ## Don't trust, verify.
 
