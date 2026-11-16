@@ -252,23 +252,23 @@ The recorded state changes also provide material for later replay with the same 
 
 Users may want continuous account trading for one action and direct delivery to an external wallet for another. AiBTC connects both experiences to the same market.
 
-0-gas Instant Swap uses available AiBTC account balances. CORE executes buys and sells and updates the account immediately through the application flow. Each fill avoids a separate Bitcoin transaction and its network fee. Market trading fees and applicable R1 fees follow the asset's rules.
+Instant Swap: uses the available balance of the AiBTC account; deposit first if it is not enough. CORE executes buys and sells and updates the account immediately through the application flow. Each fill avoids a separate Bitcoin transaction and its network fee. Market trading fees and applicable R1 fees follow the asset's rules.
 
-Bitcoin Block Swap supports BTC-to-AIBRC purchases in graduated markets directly from an external wallet. The user's wallet and protocol vault sign their respective transaction inputs, combining the BTC payment and AIBRC transfer instruction in one Bitcoin transaction. The purchased AIBRC is delivered to the linked external wallet.
+Block Swap: pays with BTC straight from the wallet, with no deposit to AiBTC first; the AIBRC received goes straight to the linked wallet. It supports BTC-to-AIBRC purchases in graduated markets. The BTC payment and AIBRC transfer instruction go into the same Bitcoin transaction.
 
-Instant makes repeated interaction convenient; Block Swap makes direct wallet participation convenient. AIBRC held externally can enter the platform's deposit flow for subsequent Instant selling. Both routes draw on the same market and liquidity foundation. Source: AIBTC Swap
+Instant Swap makes repeated interaction convenient; Block Swap makes direct wallet participation convenient. AIBRC held externally can enter the AiBTC deposit flow for selling through Instant Swap. Both routes draw on the same market and liquidity foundation. Source: AIBTC Swap
 
 23. How does PSBT co-signing combine payment and asset delivery in Block Swap?
 
 Block Swap uses BTC directly from the user's external wallet, bringing payment and the AIBRC transfer instruction into the same Bitcoin transaction. This removes the intermediate deposit, account purchase and asset-withdrawal sequence for that exchange.
 
-After the amount, quote, receiving address and fees are established, the transaction is constructed in PSBT format. The user's wallet signs its BTC inputs, and the protocol vault signs the asset-authorization inputs it controls. Co-signing means each participant signs its own inputs in the shared transaction.
+AIBRC withdrawal and Block Swap (co-signing): the user's wallet and Atom Unit each sign their own inputs in the same Bitcoin transaction.
 
-The signer rebuilds each transaction according to the order record and execution rules, checking inputs, receiving addresses, amounts, fees and change. After confirming the user's signature, it completes the protocol vault's signature and broadcasts the transaction. The user keeps the wallet private key, while an isolated signer handles protocol-vault signing.
+The signer rebuilds the transaction from the order record and checks inputs, receiving addresses, amounts, fees and change. The user's private key stays in the wallet.
 
-This PSBT co-signing mechanism covers AIBRC protocol withdrawals and Block Swap. BTC withdrawals use their own separate flow.
+Broadcast: outside Atom Unit, by the local Bitcoin Core node.
 
-For Block Swap, asset delivery is recognized at one confirmation after AIBRC validation. At two confirmations, the corresponding funds and fees enter the AMM's confirmed accounting. Instant uses account balances for immediate trading, and both routes share the market's liquidity. Source: Block Swap signing and settlement
+For Block Swap, asset delivery is recognized at one confirmation after AIBRC validation. At two confirmations, the corresponding funds and fees enter the AMM's confirmed accounting. Instant Swap uses account balances, and both routes share the market's liquidity. Source: Block Swap signing and settlement
 
 24. How does one liquidity pool power both Swaps?
 
@@ -345,3 +345,17 @@ The AIBRC indexer computes protocol asset state. AiBTC execution records describ
 AiBTC is a Bitcoin Hybrid DEX and fair-launch trading platform powered by AIBRC. AIBRC supplies a unified asset and account language for the Bitcoin ecosystem, while @ connects identity and address so Agents can recognize Bitcoin-native assets through accounts rather than track individual AIBRC carrier UTXOs. One fair launch establishes related AIBRC, BRC-20, Runes and EVM application entry points through shared provenance and explicit references. One liquidity pool supports 0-gas Instant Swap and Bitcoin Block Swap. Smart Covenant connects assets to public calculation rules, CORE executes trading, fee distribution and buybacks, and indexers and public records provide the data for queries and recomputation. Together, these capabilities bring continuous trading, fair launches and an Agent-friendly asset experience to Bitcoin.
 
 The central ideas are consistent throughout: identifiable assets, address-based accounts, public rules, one connected market, clear execution records and reusable interfaces for people, developers and Agents. Sources: AiBTC overview, AIBRC overview
+
+## Reserves, deposits and withdrawals
+
+31. How are AiBTC's reserves recorded, and where can they be verified?
+
+Users and their Agents can verify their own on-chain reserves. The account's deposit address, each deposit and withdrawal, and each Block Swap can be found on-chain from the original record and TxID. Market liquidity reserves are recorded in the AIBTC CORE ledger, anchored to Bitcoin in batches, and can be recomputed from the trade proofs with the public method. AiBTC reserves follow the atomic unit model of the Atom Unit Protocol: no unified reserve address, no fund consolidation. Each account has a fixed deposit address, assets belong to the account of the sign-in address, and balances follow the CORE ledger. Each asset has one protocol address that holds its Atomic Swap Units.
+
+32. How are BTC and AIBRC deposited, and does Block Swap need a deposit first?
+
+BTC goes to the account's fixed deposit address shown on the Assets page and is credited to the CORE account after verification, usually at 1 Bitcoin confirmation. AIBRC uses the matching asset's deposit entry on the Assets page: check the amount, address and fees, sign in the wallet, then follow the original record. Instant Swap uses the account's available balance. Block Swap pays with BTC straight from the wallet, with no deposit to AiBTC first.
+
+33. How are BTC and AIBRC withdrawn?
+
+Choose the asset on the Assets page and check the amount, receiving address and fees. BTC withdrawal uses mutual signing: the receiving address is authorized by the user's signature, and withdrawals pay only to that address; Atom Unit verifies, then signs. AIBRC withdrawal, open after graduation, uses co-signing: the user's wallet and Atom Unit each sign their own inputs in the same Bitcoin transaction. After broadcast, the original withdrawal record and TxID show the confirmation progress.

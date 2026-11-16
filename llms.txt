@@ -1,6 +1,11 @@
 # AiBTC
 AiBTC is a Bitcoin Hybrid DEX and fair-launch trading platform, powered by the AIBRC protocol. @ is both identity and address. Through @, AiBTC lets AI understand Bitcoin and makes every Bitcoin asset programmable. AIBRC, BRC-20, Runes and EVM assets all live in 1 address, with 1 fair launch. 1 liquidity pool powers 2 Swaps: 0-gas Instant Swap and Bitcoin Block Swap. AiBTC brings public-chain-grade trading and fair launches to Bitcoin.
 
+Atom Unit: reserves, deposits and withdrawals
+AiBTC reserves follow the atomic unit model of the Atom Unit Protocol, and users and their Agents can verify their own on-chain reserves. Instant Swap uses the available account balance; Block Swap pays BTC directly from the wallet, with no deposit first. BTC withdrawal uses mutual signing, and AIBRC withdrawal and Block Swap use co-signing, all through the same Atom Unit.
+
+Atom Unit guide: https://aibtc.io/docs/atom-unit/
+
 One @ connects identity, assets, launches, trading and Agents
 
 AiBTC brings a shared asset standard and a unified account model to Bitcoin, connecting fair launches, markets, liquidity, programmable rules and applications.
@@ -61,21 +66,19 @@ Graduation continues the same asset and market in a V2 pool, with Block Swap, li
 
 One liquidity pool powers two Swaps
 
-0-gas Instant Swap trades with the available balance in an AiBTC account. AIBTC CORE executes buys and sells and updates balances, providing continuous trading without a separate Bitcoin transaction for each fill.
+Instant Swap: uses the available balance of the AiBTC account; deposit first if it is not enough. AIBTC CORE executes buys and sells and updates balances, providing continuous trading without a separate Bitcoin transaction for each fill.
 
-Bitcoin Block Swap currently serves graduated markets in the BTC → AIBRC direction. A wallet handshake and PSBT construction bring BTC payment and the AIBRC transfer instruction into one Bitcoin transaction. Assets are delivered at 1 confirmation and the corresponding reserves enter the pool at 2 confirmations.
+Block Swap: pays with BTC straight from the wallet, with no deposit to AiBTC first; the AIBRC received goes straight to the linked wallet. It currently serves graduated markets in the BTC → AIBRC direction. A wallet handshake and PSBT construction bring BTC payment and the AIBRC transfer instruction into one Bitcoin transaction. Assets are delivered at 1 confirmation and the corresponding reserves enter the pool at 2 confirmations.
 
 Both routes connect to the same AIBRC market, liquidity and pricing foundation. Pending-aware pricing includes the effects of eligible pending swaps in subsequent quotes, joining account execution with Bitcoin's block cadence.
-PSBT signing
-The following separately signed PSBT flow applies to AIBRC protocol withdrawals and Block Swap.
+Signing and broadcast
+BTC withdrawal (mutual signing): the receiving address is authorized by the user's signature, and withdrawals pay only to that address; Atom Unit verifies, then signs.
 
-AiBTC uses PSBT to organize Bitcoin transactions. The user's wallet and the protocol vault each sign the transaction inputs they control. For each order, the signer rebuilds and checks the transaction against the order's rules, verifies the user's signature, completes the protocol-vault signatures and broadcasts the complete transaction.
+AIBRC withdrawal and Block Swap (co-signing): the user's wallet and Atom Unit each sign their own inputs in the same Bitcoin transaction.
 
-Users retain their wallet private keys. An isolated signer handles protocol-vault funds, with fund-key access kept in the signing component, separate from business services.
+Broadcast: outside Atom Unit, by the local Bitcoin Core node.
 
-Block Swap starts directly from the user's wallet. The user and protocol vault sign their respective inputs through PSBT, combining BTC payment and the AIBRC asset-transfer instruction in one Bitcoin transaction.
-
-Instant Swap trades immediately with account balances, without waiting for a Bitcoin block for each trade. Both routes share the same market and liquidity.
+The user's private key stays in the wallet.
 
 Smart Covenant: EVM rule capabilities for Bitcoin assets
 
