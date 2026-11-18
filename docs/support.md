@@ -153,14 +153,14 @@ If you still have questions after checking, keep the original records and report
 
 Open the original deposit record under “Assets” and check the address it was sent to, the amount, the broadcast, the confirmation progress and the exact status.
 
-An ordinary BTC deposit is usually credited after 1 Bitcoin block confirmation and system verification. There may still be processing time between reaching the confirmations and the balance updating on the page; go by the conditions shown in the original record.
+A BTC deposit below 0.2 BTC is credited after 1 Bitcoin confirmation and system verification. A deposit of 0.2 BTC or more requires 2 Bitcoin confirmations. There may still be processing time between reaching the confirmations and the balance updating on the page; go by the conditions shown in the original record.
 
 ```text
 Deposit
     ↓
 Send BTC to your account's fixed deposit address
     ↓
-The Bitcoin L1 transfer enters a block · usually 1 confirmation
+Bitcoin L1 confirmation · 1 below 0.2 BTC, 2 at 0.2 BTC or more
     ↓
 The system verifies the transaction, amount and current main chain
     ↓
@@ -181,22 +181,40 @@ Bitcoin transaction confirmation and AIBRC instruction effect are verified separ
 
 Do not send other protocols' assets the same way just because their names look similar; follow the asset the page identifies and its supported flow.
 
-### 3.3 A block rollback, reorg or conflicting transaction happened
+<span id="33-a-block-rollback-reorg-or-conflicting-transaction-happened"></span>
 
-A reorg can lower the confirmation count or put the original transaction back into waiting. This does not necessarily mean the assets were stolen, and it does not by itself mean the transaction failed.
+### 3.3 Deposits: what happens if a transaction is replaced (RBF), double-spent, or affected by a chain reorganization? Who bears any loss? {#deposit-rbf-reorg}
 
-```text
-The original transaction's confirmation status changes
-    ↓
-Re-verify against the current valid main chain
-    ├─ Back in a block: keep confirming per the original record
-    ├─ Not found yet: keep the pending status and the original txid
-    └─ Conflict found: goes to exception review
-```
+Deposits follow confirmations on Bitcoin's canonical chain. Zero-confirmation deposits are not credited.
 
-Keep the original transaction hash and check the deposit record and announcements. Do not pay again to “top up” the deposit, and never pay a “recovery fee” or an “unfreeze fee” to resolve an exception.
+#### 1. Confirmation requirements
 
-Whether recovery has finished follows the original transaction and the page status; a growing block height alone does not mean an exception has cleared.
+- Standard deposits: less than 0.2 BTC in a single transaction, credited after 1 Bitcoin confirmation and system verification.
+- Large deposits: 0.2 BTC or more in a single transaction, credited after 2 Bitcoin confirmations.
+
+#### 2. Replacement (RBF) or double-spend before confirmation
+
+Only the transaction ultimately confirmed on Bitcoin's canonical chain counts.
+
+- If it pays to your deposit address, the actual amount received is credited.
+- If it pays to another address, the original transaction is superseded and is not credited.
+
+At this stage, the funds have never been credited, so AiBTC and the liquidity pool incur no loss. The payer bears the miner fees resulting from their own actions.
+
+#### 3. A chain reorganization or double-spend attack after crediting
+
+AiBTC verifies the deposit again against the current valid chain.
+
+- If the original transaction is included in a block again, processing continues under the original record. No user action is needed.
+- If a conflicting transaction replaces it, the affected account enters exception review.
+
+Other users' balances, deposits and withdrawals continue normally. AiBTC bears any shortfall, retains the complete on-chain evidence and seeks recovery from the party responsible for the double-spend.
+
+#### 4. Check your deposit
+
+Keep the original transaction hash (TxID) and follow the deposit record under Assets. Pay once for each deposit.
+
+Your Agent can use the TxID to read confirmations on Bitcoin's canonical chain and compare them with the deposit record, field by field.
 
 ## 4. Withdrawals, Block Swap & transaction progress {#support-s7}
 
