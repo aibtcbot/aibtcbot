@@ -1,6 +1,6 @@
 # Code examples
 
-These are selected examples from the platform's public interfaces and the wallet-signature notes already published in this repository. They explain the interaction; they are not a trading SDK.
+Read public markets, connect an Agent through MCP, and review wallet signing examples.
 
 ## Read public markets
 

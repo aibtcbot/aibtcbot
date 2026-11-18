@@ -23,6 +23,6 @@ FINGERPRINTS_AND_MERKLE_MATCHED_OTS_BITCOIN_NOT_VERIFIED
 
 This checks the record and manifest fingerprints, inclusion proof and any supplied consistency proof. Complete the OTS-to-Bitcoin check and supported business-formula recomputation separately, using the verification method included with the copied proof.
 
-The GitHub script includes compatibility for LF and CRLF input files. Its checksum belongs to this file; no change to the trading website is required to use this copy.
+The script accepts both LF and CRLF input files. Use the accompanying SHA-256 file to check this download.
 
 Find the [verification guide](verification/README.md) for Method v2, the AI prompt and public endpoints.

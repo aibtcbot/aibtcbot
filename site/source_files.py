@@ -7,7 +7,7 @@ ROOT = Path(__file__).resolve().parent.parent
 
 def on_files(files, config):
     paths = [ROOT / p for p in (
-        'README.md', 'SOURCE_MAP.md', 'CLOUDFLARE.md', 'FAQ.md', 'llms.txt', 'llms-full.txt',
+        'README.md', 'FAQ.md', 'llms.txt', 'llms-full.txt',
     )]
     for folder in ('docs', 'proofs', 'site/assets'):
         paths.extend(sorted((ROOT / folder).rglob('*')))

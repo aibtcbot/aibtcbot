@@ -59,9 +59,6 @@ nav:
       - Reference proof script: docs/reference-proof.md
   - Support: docs/support.md
   - Product FAQ: FAQ.md
-  - Repository:
-      - Sources & changes: SOURCE_MAP.md
-      - Cloudflare setup: CLOUDFLARE.md
 validation:
   nav:
     not_found: warn

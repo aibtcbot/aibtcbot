@@ -2,7 +2,7 @@
 
 **Know what you sign and what it authorizes.**
 
-This repository explains how AIBTC connects to Bitcoin wallets, verifies sign-in messages, authorizes trading, and handles transaction signing and withdrawals. It includes selected implementation excerpts and the existing Merkle reference script.
+This guide covers wallet connections, sign-in messages, trading authorization, transaction signing, withdrawals and public proofs.
 
 AIBTC uses your wallet's connection and signing APIs. It does not ask you to enter or upload your seed phrase or private keys. Your wallet signs locally; the application receives public account information, message signatures, or signed transaction data.
 
@@ -357,14 +357,4 @@ When checking a standalone inclusion or consistency bundle, success is reported 
 
 The user-facing documentation calls this **Merkle proof v2** and **AiBTC Verification Method v2**. The underlying checkpoint manifest is `AIBRC_CHECKPOINT_MANIFEST_V3`, while the complete copied-proof format is `AIBRC_EXPLORER_PROOF_COPY_V2`. The reference script retains its existing `v3` filename to keep these separate version identifiers accurate.
 
-The checksum file beside the script applies to the GitHub copy. This copy includes CRLF support; the trading website maintains its own separately versioned copy.
-
-## Source version
-
-This document is based on source revision:
-
-```text
-7ec073658d77507851d05516024a6261ce390d05
-```
-
-Signing-message examples preserve the implementation's wording. Code excerpts are taken from the relevant functions, with minor line wrapping for readability. This repository documents wallet interactions, signing rules, and the existing Merkle reference script. It contains no private keys, session credentials, production configuration, or real users' signing data.
+Use the accompanying SHA-256 file to check this download. The script accepts both LF and CRLF input files.
