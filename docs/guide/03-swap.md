@@ -567,3 +567,31 @@ Timestamp proofs help show that data existed at a point in time; they don't by t
 Agent interaction and independent verification are evolving directions; they don't mean every interface or automatic trading permission is open to any third-party Agent today. Your authorization remains the boundary of execution.
 
 Connect account trading to on-chain value, connect wallet authorization to a shared market, and let people and Agents take part in the Bitcoin ecosystem in one asset language
+
+## 3.12 Block Swap: what happens if a transaction is replaced (RBF), double-spent, or hit by a reorg? {#c3-s12}
+
+Block Swap settles the BTC payment and the AIBRC delivery in one Bitcoin transaction. That transaction either takes effect as a whole or does not exist.
+
+### 1. Funds and assets
+
+There is no "BTC paid, asset not received", and no "asset taken, BTC not paid".
+
+### 2. Replacement or double-spend
+
+Before confirmation, the payer can replace the transaction by spending their own input. This is a rule of the Bitcoin network. The swap simply does not happen: the BTC stays in the payer's wallet, no asset is delivered, and the payer bears the network fee of the replacing transaction.
+
+### 3. A market game, not an attack on the protocol
+
+An unconfirmed Block Swap is a public on-chain transaction that anyone can observe. No one can know when the next Bitcoin block will be mined. A transaction can be replaced, and the original can equally be accelerated; miners decide which one confirms. Price moves caused by unconfirmed transactions are part of the open market game, and each user makes their own judgment.
+
+### 4. The initial 20% limit
+
+Block Swaps not yet in a block are capped at 20% of the confirmed BTC reserve. The limit addresses swaps that are submitted and then cancelled, and bounds their effect on quotes. 20% is the initial value. The ratio will later follow market conditions and be decided by community proposals. Instant Swap is not subject to this limit.
+
+### 5. Reorgs
+
+Delivered at 1 confirmation · pooled at 2, adding a confirmation buffer to pool accounting against short reorgs. A transaction that returns to unconfirmed continues as the original transaction once it confirms again. If a conflicting transaction confirms instead, see point 2. Status is tracked by the original transaction hash; don't pay again.
+
+### 6. Price protection
+
+Price protection constrains the minimum received for your own trade.
