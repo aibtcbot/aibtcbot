@@ -1,269 +1,77 @@
-# Quick Guide to AiBTC & AIBRC
+# From @, AI understands BTC and executes Smart Covenants, while people + Agents verify independently.
 
-AIBRC protocol · [github.com/aibrc-code/aibrc](https://github.com/aibrc-code/aibrc)
+For AI: [llms.txt](llms.txt) · [llms-full.txt](llms-full.txt) · Protocol repo: [github.com/aibrc-code/aibrc](https://github.com/aibrc-code/aibrc)
 
-## AiBTC & AIBRC at a glance
+## AiBTC & AIBRC
 
-**AiBTC**: a Bitcoin L1 launchpad DEX and agent terminal, bringing together asset issuance, trading, liquidity and agent apps.
+- **AiBTC**: a Hybrid DEX built on Bitcoin and the first application of Smart Covenant programmability. One launch connects assets across multiple protocols, and unified liquidity builds the ecosystem’s finance and application layer.
+- **AIBRC protocol**: a unified asset and account standard for the Bitcoin ecosystem.
+    - Assets live at Bitcoin addresses, and the address is a unified account.
+    - Protocols keep their native rules, while wallets, apps and Agents share one interaction language.
+    - AiBTC is one of the apps built on AIBRC.
+- **Smart Covenant**: Bitcoin anchors assets and EVM defines rules. It is already a distributed Agent network: execution is handed to Smart Covenants and Agents, and the right to verify returns to every person and every Agent.
 
-**AIBRC protocol**: a unified asset and account standard for the Bitcoin ecosystem. Its account-balance model unifies the account layer and underpins assets that work across protocols, so users and Agents can understand, track and verify assets by the rules.
+## Three steps: read, execute, verify
 
-Just as ERC defines asset standards and EVM provides the execution environment, AIBRC Covenant Inscription sets the asset and account standard for Bitcoin, and connects rules and apps with AiBTC through Smart Covenant.
+### Read
 
-| Ethereum ecosystem | like | Bitcoin ecosystem (AIBRC × AiBTC) |
-| --- | --- | --- |
-| **ERC asset standard**<br>Asset issuance & interaction interfaces | ↔ | **AIBRC Protocol**<br>Covenant Inscription<br>Bitcoin L1 assets & address-level unified accounts |
-| **EVM execution environment**<br>Smart-contract logic execution | ↔ | **Smart Covenant + AiBTC execution stack**<br>R1 covenant parameters are fixed per asset and anchored on Bitcoin; fees, rule-fee routing and buybacks are executed by AiBTC CORE and are publicly recomputable with the AIBRC reference code (reference/r1).<br>AIBTC CORE execution & verification |
+- Assets live in the address balance, and any valid BTC UTXO at the address proves control.
+- One transaction can pay several addresses; send part of a balance and the rest stays where it was.
+- Say “send 2,000 to B and 3,000 to C”, and tools build the transaction for your wallet to authorize.
 
-## The AIBRC model at a glance
+### Execute
 
-### Traditional UTXO-bound model
+- One launch derives same-root AIBRC, BRC-20 and Runes.
+- Instant Swap trades in seconds from your AiBTC account.
+- Block Swap is signed by your own wallet and settles the BTC payment and the AIBRC delivery in one Bitcoin transaction.
+- After graduation, Smart Covenants run block buybacks or creator shares under R1 rules.
 
-```text
-Every transfer must split a UTXO
-    ↓
-spent whole
-    ↓
-Fragmented change · accidental burns · scattered UTXOs · reliance on protocol-aware exchanges & wallets · cross-protocol contamination
-```
+### Verify
 
-### AIBRC model · Asset–UTXO Decoupling
-
-```text
-Unified address state (scriptPubKey): 100,000 tokens
-    ↑
-Authorized transfer: 25,000 tokens
-    │
-Any valid BTC UTXO at the address
-    └─ proves control → Transferred
-                       Rest untouched
-```
-
-Assets live in the address balance; there is no single "carrier UTXO" to guard. An ordinary BTC spend does not move or burn the AIBRC balance just because it consumes that UTXO.
-
-Even with zero BTC at the address, the AIBRC balance remains. To transfer, add BTC inputs that cover source-address authorization, the receive output and the network fee.
-
-### Multi-recipient Transfer
-
-One set of outputs moves assets to several addresses in a single transaction. Airdrops, community distributions and group payments need no separate broadcasts; fees still depend on transaction size.
-
-### Balance-based Transfers
-
-Hold 10,000, send 5,000, and the rest stays at the original address. There is no separate "leftover-asset UTXO" to manage for token change; BTC change still follows Bitcoin transaction rules.
-
-### Agent-friendly Asset Operations
-
-Say "send 2,000 to B and 3,000 to C", and tools build the transaction around addresses, amounts and allocation rules for your wallet to authorize. Token operations no longer ask you to know which asset a UTXO carries.
-
-## Bitcoin's value, the Agent era & ecosystem connection
-
-From digital money to smart contracts and DeFi, blockchains keep widening how value can be exchanged. With PoW hash power, a public ledger and its network consensus as "energy money", Bitcoin became the store-of-value base for finance and blockchains.
-
-As AI moves from assistant tools to autonomous Agents, Bitcoin's meaning extends from "storing value" to "how machines exchange value". Agents understand intent and interact; Bitcoin gives value exchange a verifiable ledger.
-
-The Bitcoin ecosystem has been exploring for 17 years. From Ordinals, BRC-20 and Runes to Atomicals, RGB++, Taproot Assets, the Lightning Network and L2s, every protocol and extension brought new apps, assets, communities and culture.
-
-Some created works, some built protocols, some kept maintaining tools. Each wave left names behind, and many unfinished dreams; some moved to other chains, some lost faith and left blockchain.
-
-One project spreading across protocols is like the "A-chain dog" and "B-chain dog" of other L1s, rebuilding assets and liquidity each time. Communities can share a culture while their apps can't work together; innovation keeps coming, but what has been built gets scattered.
-
-### Bitcoin ecosystem in figures
-
-| Metric | Figure |
-| --- | ---: |
-| Bitcoin price | $23K → $121K |
-| Bitcoin address growth in the inscription year, year over year | 9.9M addresses |
-| Bitcoin address growth over the next 14 months | +3.75M addresses |
-| Miner earnings from inscription and Rune mints | >9,600 BTC |
-| BRC-20 cumulative on-chain transactions | 103M |
-| Total secondary trading volume | >$70B |
-
-Figures from the November 13, 2026 overview, drawing on Dune and Total Secondary Trading Volume.
-
-## The Bitcoin ecosystem today
-
-### EVM ecosystem
+- Every step is written into a public event hash chain, and records are anchored to Bitcoin in batches with OTS.
+- Copy the proof of a trade and hand it to your own AI to recompute. **Don’t Trust. Verify. With Your Own Agent.** [Verification guide](docs/verification/README.md)
 
 ```text
-Projects & assets on different chains
-    ↓
-EVM-compatible execution
-Same ERC asset standards
-    ↓
-Reused code, tools & frameworks
+peer-to-peer → server-to-server → model-to-model
 ```
 
-### The Bitcoin ecosystem today
+*The past was peer-to-peer and server-to-server; the future is model-to-model.*
 
-One project & community
+## In the future
 
-```text
-├─ Protocol A
-   Own asset rules
-   Separate wallet support
-   Separate markets
-   Separate liquidity
-├─ Protocol B
-   Own asset rules
-   Separate wallet support
-   Separate markets
-   Separate liquidity
-└─ Protocol C
-   Own asset rules
-   Separate wallet support
-   Separate markets
-   Separate liquidity
-```
+- Agent Key controlled authorization (limited by asset, amount and block) lets Agents act on their own within the rules, and the master private key stays with the user.
+- A multi-node Agent execution network.
+- More protocols and extensions, plug-and-play.
 
-**We connect them through AIBRC & AiBTC**
+## Start here
 
-Unified account · consistent interaction base · continuous trading & liquidity
+| Chapter | What you’ll find |
+| --- | --- |
+| [01 Accounts, Wallets & Addresses](docs/guide/01-accounts-wallets-addresses.md) | Sign in with a Bitcoin wallet, email or social account; wallet keys stay with you |
+| [02 Create & Launch · First Buy & Bonding Curve · Graduation](docs/guide/02-create-launch.md) | One launch, many protocols growing together |
+| [03 AIBTC Swap](docs/guide/03-swap.md) | 1 Pool, 2 Swaps: Instant Swap and Block Swap |
+| [04 Smart Covenant & Liquidity](docs/guide/04-smart-covenant-liquidity.md) | EVM as Bitcoin’s extension layer |
+| [05 AIBTC CORE](docs/guide/05-aibtc-core.md) | Bitcoin’s deterministic execution engine, every step replayable |
+| [06 Explorer & Agents](docs/guide/06-explorer-agents.md) | Make everyone’s Agent an independent verifier of the Bitcoin ecosystem |
+| [07 Atom Unit Protocol](docs/atom-unit.md) | Where reserves are deposited and withdrawn; users and their Agents can verify their own on-chain reserves |
+| [Build tools](docs/build-tools.md) · [Support](docs/support.md) | Public API, MCP, npm and integration examples; wallet troubleshooting, deposits, withdrawals and official contacts |
 
-## AIBRC × AiBTC: the big picture
+## Why we build
 
-```text
-AIBRC root deployment
-Single Parent Tx · Verifiable Ancestry
-    ↓
-One AiBTC launch · same-root derivation
-Zero Platform Creation Fee · Network Fees Paid by Users
-```
+From digital money to smart contracts and DeFi, blockchains keep widening how value can be exchanged. With PoW hash power, a public ledger and its network consensus as “energy money”, Bitcoin became the store-of-value base for finance and blockchains.
 
-```text
-├─ AIBRC root asset
-   Core asset on the platform
-   Unified accounting
-├─ Same‑root BRC‑20
-   Derived from the same parent tx
-   Keeps an inscription-ecosystem start
-├─ Same‑root Runes
-   Etched from the same parent tx
-   Keeps a runes-ecosystem start
-├─ EVM rules & contract extensions
-   R1 tax / buyback rule reference
-   X1 external contract address reference
-   Intents & future contract extensions
-   BOT execution & verification
-└─ More quality protocols & extensions ahead
-   Plug-and-Play Integration
-```
+As AI moves from assistant tools to autonomous Agents, Bitcoin’s meaning extends from “storing value” to “how machines exchange value”. Agents understand intent and interact; Bitcoin gives value exchange a verifiable ledger.
 
-```text
-Human intent
-What you want
-    ↓
-BOT execution
-Done by which rules
-    ↓
-Agent verification
-Does the result follow the rules
-```
+The Bitcoin ecosystem has been exploring for 17 years. From Ordinals, BRC-20 and Runes to Atomicals, RGB++, Taproot Assets, the Lightning Network and L2s, every protocol and extension brought new apps, assets, communities and culture. Some created works, some built protocols, some kept maintaining tools. Each wave left names behind, and many unfinished dreams.
 
-Rule parameters & intent through AIBTC CORE · public records & BTC on-chain proofs · Sequential Event Hash
-
-```text
-AIBRC as the unified account
-    ↓
-into trading & liquidity
-    ↓
-Asset launch
-    ↓
-Bonding curve
-1B / 800M
-    ↓
-Graduation
-    ↓
-V2 liquidity pool
-Block-based locks curb sudden pool exits and keep depth predictable
-Permanent pool locks · freeze protection at expiry
-```
-
-```text
-├─ Instant Swap
-   AiBTC account balance → execution in seconds on AIBTC CORE
-   Bound to the rule version
-├─ Block Swap
-   Wallet BTC → PSBT co-signing → AIBRC in your linked wallet
-   Swap in one Bitcoin transaction
-   Delivered at 1 conf, pooled at 2
-└─ LP market-making & covenant execution
-   Block-based locks share trading fees
-   Block buybacks under R1 rules
-   or creator shares and other rules
-```
-
-When L1 assets and protocols break through or innovate, creating new value and economies
-
-**Community · Holders · Agents**
-
-Explore uses for sub-assets
-
-```text
-├─ AiBTC rule layer
-   Sets asset rules
-   Organizes claims, mapping or redemption
-├─ AIBRC protocol index layer
-   Through versioned protocol rules
-   Voucher redemption & on-chain burn
-└─ Open proposals
-```
-
-## Atom Unit Protocol
-
-Users and their Agents can verify their own on-chain reserves. Atomic unit model: no unified reserve address, no fund consolidation.
-
-[Reserves, deposits and withdrawals](docs/atom-unit.md)
-
-## Don't trust, verify.
-
-> “Don't trust, verify.”
-
-Verification and execution are moving from third parties to users and their agents. In the Agent era, everyone holds a PC or phone with real computing power, and uses Claude, Codex or OpenClaw to execute and verify.
-
-```text
-Early peer-to-peer
-Individuals ran nodes
-    ↓
-Node networks
-Trust in a few validators & costly hardware
-    ↓
-People & Agents
-Bitcoin ledger + personal device + your own AI
-```
-
-— From the first peer-to-peer, toward Agents and You
+We want to bring this consensus and these unfinished dreams back to Bitcoin. We connect them through AIBRC & AiBTC: a unified account, a consistent interaction base, continuous trading and liquidity.
 
 ## About the builders
 
-AiBTC and AIBRC are funded entirely by the AIBTC Labs team itself, with no outside venture capital (VC) or institutional money with strings attached.
+AiBTC and AIBRC are funded entirely by the AIBTC Labs team itself. We built the underlying system and protocol standard from zero, so the platform and protocol stay independent and neutral as long-term ecosystem infrastructure, with the same rules for everyone and real participation and long-term room left to the community, builders and every holder.
 
-We chose to build the underlying system and protocol standard from zero, free of outside capital's pressure for short-term returns, to keep the platform and protocol independent and neutral as long-term ecosystem infrastructure, with no privileges reserved for any single party. As infrastructure, we want the rules to stay pure and neutral, leaving real participation and long-term room to the community, builders and every holder.
+The AIBRC protocol has no founder and no team. Docs are CC0 and code is MIT, fully open source.
 
 We all love Bitcoin this much. This pure love — for decentralization, monetary freedom and technological ideals — is where AiBTC began and what brings its global community together.
 
-## Verify it yourself / 自己验证
-
-Use [AiBTC Verification Method v2](docs/verification/METHOD_v2.en.md) with the [website's public Explorer](https://aibtc.bot/explorer/events) to check a record and its recorded pool-reserve changes.
-
-**One trade, with the pool's reserve change, leaves a verifiable proof. Hand it to your AI to recompute independently.**
-
-Follow the [verification guide](docs/verification/README.md) to copy the proof, run the [AI prompt](docs/verification/PROMPT.en.md), and [recompute each check](docs/verification/WHAT_AN_AI_CAN_CHECK.md). Compare the ending reserves of the market's latest record with its [public snapshot](docs/verification/PUBLIC_ENDPOINTS.md).
-
-[中文核验指南](docs/verification/README.md)
-
-## Read the full documentation
-
-| Read | What you will find |
-| --- | --- |
-| [01 Accounts, Wallets & Addresses](docs/guide/01-accounts-wallets-addresses.md) | Full platform guide |
-| [02 Create & Launch · First Buy & Bonding Curve · Graduation](docs/guide/02-create-launch.md) | Full platform guide |
-| [03 AIBTC Swap](docs/guide/03-swap.md) | Hybrid DEX Engine |
-| [04 Smart Covenant & Liquidity](docs/guide/04-smart-covenant-liquidity.md) | Full platform guide |
-| [05 AIBTC CORE](docs/guide/05-aibtc-core.md) | Full platform guide |
-| [06 Explorer & Agents](docs/guide/06-explorer-agents.md) | Full platform guide |
-| [Build tools](docs/build-tools.md) | Public API, MCP, npm and integration examples |
-| [Product FAQ](FAQ.md) · [LLMs index](llms.txt) · [Full reference](llms-full.txt) | Product answers and reference text for people and Agents |
-| [Support](docs/support.md) | Wallet troubleshooting, deposits, withdrawals and official contacts |
-| [Wallet signatures](docs/wallet-signatures.md) | Signing messages, permission scopes and PSBT excerpts |
-| [Code examples](docs/code-examples.md) | Selected public-facing integration examples |
-| [Reference proof script](docs/reference-proof.md) | Existing Python reference and downloads |
+Math over promises, rules over individuals. This is an ecosystem experiment between BTC and AI.
