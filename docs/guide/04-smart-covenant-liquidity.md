@@ -230,6 +230,12 @@ Base LP fees are distributed by effective share, with user-held and protocol-hel
 
 Traders swap, liquidity providers add depth, and covenant rules link earnings and buybacks, so the market's different roles work together.
 
+```text
+Block-based locks curb sudden pool exits and keep depth predictable
+Permanent pool locks · freeze protection at expiry
+Block-based locks share trading fees
+```
+
 ## 6. CORE: turning public rules into execution {#c4-s6}
 
 ### Deterministic Execution

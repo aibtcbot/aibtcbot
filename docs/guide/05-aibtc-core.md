@@ -8,7 +8,7 @@
 
 Bitcoin produces a block roughly every 10 minutes — its rock-solid strength, and a built-in limit for high-frequency apps. Meme launches, swaps in seconds, per-block automatic buybacks… if every step had to queue on Bitcoin mainnet and pay gas, no modern DeFi product could run.
 
-The industry's past answers came in two kinds: bridge assets out to another virtual machine — in effect abandoning Bitcoin mainnet — or accept that Bitcoin can "only store and transfer" and give up the app layer entirely.
+Past answers came in two kinds: bridge assets to another virtual machine, or keep Bitcoin to storing and transferring.
 
 **AIBTC CORE offers a third way: treat Bitcoin as the final settlement layer, hand high-frequency execution to a Deterministic State Machine, and record every state change so anyone — person or Agent — can replay and verify it at any time.**
 
@@ -218,9 +218,9 @@ The future of finance belongs to Autonomous Agents. CORE's interfaces are built 
 
 ## 8. Execution and public verification {#c5-s10}
 
-AIBTC Labs runs CORE as the execution node today. CORE records market events, Merkle proofs link records to batch checkpoints, and OpenTimestamps anchors each published batch digest to Bitcoin. Use the [verification guide](../verification/README.md) to check a copied record with your Agent.
+It is already a distributed Agent network: execution goes to Smart Covenants and Agents, and the right to verify goes back to every person and every Agent. CORE records market events, Merkle proofs link records to batch checkpoints, and OpenTimestamps anchors each published batch digest to Bitcoin. Use the [verification guide](../verification/README.md) to check a copied record with your Agent.
 
-Multi-node execution and independent Agent witnesses are directions for future development.
+The future: we are moving toward a multi-node Agent execution network.
 
 ---
 

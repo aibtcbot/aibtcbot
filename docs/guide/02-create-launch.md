@@ -437,6 +437,13 @@ Connected to the AIBRC root asset & unified account
 
 These are future directions; each needs its own rules and implementation. Same-root provenance does not by itself create swap or redemption rights.
 
+```text
+Open proposals
+└─ AIBRC protocol index layer
+   Through versioned protocol rules
+   Voucher redemption & on-chain burn
+```
+
 ### One account, so you focus on what to do
 
 AIBRC's address-level balance model provides a shared account layer, so interactions center on accounts, assets, amounts and explicit rules. AiBTC connects trading, liquidity and apps on top of it.
