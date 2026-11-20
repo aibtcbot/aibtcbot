@@ -1,5 +1,7 @@
 # Quick Guide to AiBTC & AIBRC
 
+AIBRC protocol · [github.com/aibrc-code/aibrc](https://github.com/aibrc-code/aibrc)
+
 ## AiBTC & AIBRC at a glance
 
 **AiBTC**: a Bitcoin L1 launchpad DEX and agent terminal, bringing together asset issuance, trading, liquidity and agent apps.
