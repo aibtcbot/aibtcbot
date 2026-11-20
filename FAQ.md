@@ -274,7 +274,7 @@ For Block Swap, asset delivery is recognized at one confirmation after AIBRC val
 
 One AIBRC market's pool supplies the liquidity for Instant and Block Swap. Trading demand connects to the same depth, so the project builds one market across both account-based and wallet-based participation.
 
-The two routes share a reserve and pricing foundation while operating at different speeds. Instant executes through the account state machine; Block Swap progresses with Bitcoin confirmations.
+The two routes share a reserve and pricing foundation while operating at different speeds. Instant executes through the account state machine; Block Swap progresses with Bitcoin confirmations. Both are valid event inputs to the same deterministic state machine (FSM); once their order is fixed, the output state is unique, so the pool never forks.
 
 Pending-aware pricing connects those rhythms. AiBTC tracks confirmed reserves alongside the effects of eligible pending swaps, then calculates effective reserves for subsequent quotes. The pending swap's net BTC effect and corresponding AIBRC quantity are reflected in that calculation.
 

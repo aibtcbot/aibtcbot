@@ -8,6 +8,8 @@ Instant Swap: uses the available balance of the AiBTC account; deposit first if 
 
 Block Swap: pays with BTC straight from the wallet, with no deposit to AiBTC first; the AIBRC received goes straight to the linked wallet.
 
+The technical principle is a deterministic state machine (FSM): Instant Swap and Block Swap are two valid event inputs (event triggers) to the same state machine. Once the order of events is fixed, the output state is unique, so both routes share one pool without forking.
+
 ```text
                          Same AIBRC market
                                 │
@@ -130,7 +132,7 @@ The BTC payment and AIBRC transfer instruction go into the same Bitcoin transact
 ```text
 Your external wallet                    Atom Unit
     │                                       │
-BTC payment & network-fee inputs        Inventory & protocol authorization inputs
+BTC payment & network-fee inputs        Atomic Swap Unit & protocol authorization inputs
     │                                       │
 Wallet handshake · check the quote      Checks rules, limits & price protection
 Sign the PSBT locally                   Co-signs
@@ -151,7 +153,7 @@ Sign the PSBT locally                   Co-signs
 
 ### Handshake
 
-The system quotes from the current effective reserves and checks the swap amount, estimated tokens, receive address and fee breakdown. Once the request is admitted, it locks the matching Atomic Swap Unit and asset inventory, so signing and execution proceed on consistent terms.
+The system quotes from the current effective reserves and checks the swap amount, estimated tokens, receive address and fee breakdown. Once the request is admitted, it locks the matching Atomic Swap Unit and the AIBRC amount to be delivered, so signing and execution proceed on consistent terms.
 
 ### PSBT · Partially Signed Bitcoin Transaction
 
@@ -256,7 +258,7 @@ The main figure shows pending resource usage as total units minus available unit
 - 1: one unit shown in use
 - 2: two units shown in use
 
-This figure reuses resource availability: maintenance, disabled units and units not yet ready can also contribute to the difference. It is not an independent count of on-chain orders. When the target changes from 25 to 50, the figure still uses total minus available, and the tooltip limit changes to 50. A higher target does not mean the new units are already confirmed and available. Admission still depends on unit availability, the dynamic limit, inventory and your own order status.
+This figure reuses resource availability: maintenance, disabled units and units not yet ready can also contribute to the difference. It is not an independent count of on-chain orders. When the target changes from 25 to 50, the figure still uses total minus available, and the tooltip limit changes to 50. A higher target does not mean the new units are already confirmed and available. Admission still depends on unit availability, the dynamic limit, the AIBRC available in the pool and your own order status.
 
 ### Atomic Swap Unit Recovery
 
@@ -284,7 +286,7 @@ Currently not yet in a block: 0.08 BTC
 
 Left for new requests: 0.12 BTC
 
-Usage counts the gross swap amount, not net principal after fees. What you can actually submit is still bounded by Atomic Swap Units, inventory, your order status and the latest quote.
+Usage counts the gross swap amount, not net principal after fees. What you can actually submit is still bounded by Atomic Swap Units, the AIBRC available in the pool, your order status and the latest quote.
 
 ### When is the limit released?
 

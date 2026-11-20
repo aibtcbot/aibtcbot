@@ -316,7 +316,7 @@ Block Swap: pays with BTC straight from the wallet, with no deposit to AiBTC fir
 
 A wallet handshake and PSBT construction organize one Bitcoin transaction:
 - The user supplies BTC payment and network-fee inputs.
-- The protocol execution side supplies inventory and protocol authorization inputs.
+- Atom Unit supplies the Atomic Swap Unit input and the protocol authorization.
 - The transaction contains BTC payment and the AIBRC Transfer instruction.
 - Each side signs the inputs it controls.
 - The completed transaction is broadcast and confirmed.
@@ -347,7 +347,7 @@ Pending-aware pricing tracks confirmed reserves and the effects of eligible pend
 
 The BTC and AIBRC effects of an eligible pending buy enter effective-reserve calculations. When the swap reaches pool-entry conditions, its pending effects are replaced by the corresponding confirmed-reserve update.
 
-Atomic Swap Units, dynamic limits and inventory management organize concurrent Block Swaps around that market.
+Both routes are valid event inputs to the same deterministic state machine (FSM): once their order is fixed, the output state is unique, so one pool serves both without forking. Concurrent Block Swaps each use their own Atomic Swap Unit, and the dynamic limit caps the swaps not yet in a block.
 
 Users choose the route that suits each action. Trading and liquidity remain connected across account execution and Bitcoin L1 delivery.
 
@@ -958,7 +958,7 @@ For Block Swap, asset delivery is recognized at one confirmation after AIBRC val
 
 One AIBRC market's pool supplies the liquidity for Instant and Block Swap. Trading demand connects to the same depth, so the project builds one market across both account-based and wallet-based participation.
 
-The two routes share a reserve and pricing foundation while operating at different speeds. Instant executes through the account state machine; Block Swap progresses with Bitcoin confirmations.
+The two routes share a reserve and pricing foundation while operating at different speeds. Instant executes through the account state machine; Block Swap progresses with Bitcoin confirmations. Both are valid event inputs to the same deterministic state machine (FSM); once their order is fixed, the output state is unique, so the pool never forks.
 
 Pending-aware pricing connects those rhythms. AiBTC tracks confirmed reserves alongside the effects of eligible pending swaps, then calculates effective reserves for subsequent quotes. The pending swap's net BTC effect and corresponding AIBRC quantity are reflected in that calculation.
 

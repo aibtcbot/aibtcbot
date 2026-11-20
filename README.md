@@ -2,6 +2,8 @@
 
 From @, AI understands BTC and executes Smart Covenants, while people + Agents verify independently.
 
+AIBRC mainnet activation height: Bitcoin block 976720.
+
 For AI: [llms.txt](llms.txt) · [llms-full.txt](llms-full.txt) · Protocol repo: [github.com/aibrc-code/aibrc](https://github.com/aibrc-code/aibrc)
 
 ## AiBTC & AIBRC
@@ -13,12 +15,12 @@ For AI: [llms.txt](llms.txt) · [llms-full.txt](llms-full.txt) · Protocol repo:
     - AiBTC is one of the apps built on AIBRC.
 - **Smart Covenant**: Bitcoin anchors assets and EVM defines rules. It is already a distributed Agent network: execution is handed to Smart Covenants and Agents, and the right to verify returns to every person and every Agent.
 
-Just as ERC defines asset standards and EVM provides the execution environment, AIBRC Covenant Inscription sets the asset and account standard for Bitcoin, and connects rules and apps with AiBTC through Smart Covenant.
+Just as ERC defines asset standards and EVM provides the execution environment, AIBRC Covenant Inscription sets the asset and account standard for Bitcoin, and Smart Covenant connects its rules to applications such as AiBTC.
 
-| Ethereum ecosystem | like | Bitcoin ecosystem (AIBRC × AiBTC) |
-| --- | --- | --- |
-| **ERC asset standard**<br>Asset issuance & interaction interfaces | ↔ | **AIBRC Protocol**<br>Covenant Inscription<br>Bitcoin L1 assets & address-level unified accounts |
-| **EVM execution environment**<br>Smart-contract logic execution | ↔ | **Smart Covenant + AiBTC execution stack**<br>R1 covenant parameters are fixed per asset and anchored on Bitcoin; fees, rule-fee routing and buybacks are executed by AIBTC CORE and are publicly recomputable with the AIBRC reference code (reference/r1).<br>AIBTC CORE execution & verification |
+| Ethereum | Bitcoin (AIBRC × AiBTC) |
+| --- | --- |
+| **ERC asset standard**<br>Asset issuance & interaction interfaces | **AIBRC Protocol · Covenant Inscription**<br>Bitcoin L1 assets & address-level unified accounts |
+| **EVM execution environment**<br>Smart-contract logic execution | **Smart Covenant + deterministic state machine (FSM)**<br>R1 parameters are fixed per asset and anchored on Bitcoin; AIBTC CORE and Agents execute on the same state machine; anyone can recompute with the R1 reference code (reference/r1). |
 
 ## Three steps: read, execute, verify
 
@@ -31,9 +33,9 @@ Just as ERC defines asset standards and EVM provides the execution environment, 
 #### Traditional UTXO-bound model
 
 ```text
-Every transfer must split a UTXO
+Every transfer splits a carrier UTXO
     ↓
-spent whole
+The carrier UTXO is spent whole
     ↓
 Fragmented change · accidental burns · scattered UTXOs · reliance on protocol-aware exchanges & wallets · cross-protocol contamination
 ```
@@ -64,7 +66,7 @@ Even with zero BTC at the address, the AIBRC balance remains. To transfer, add B
 ### Verify
 
 - Every step is written into a public event hash chain, and records are anchored to Bitcoin in batches with OTS.
-- Copy the proof of a trade and hand it to your own AI to recompute. **Don’t Trust. Verify. With Your Own Agent.** [Verification guide](docs/verification/README.md)
+- Copy the proof of a trade and hand it to your own AI to recompute; different AI models can replay the same deterministic state machine independently and check one another's results. **Don’t Trust. Verify. With Your Own Agent.** [Verification guide](docs/verification/README.md)
 
 ```text
 Early peer-to-peer
@@ -81,7 +83,7 @@ Bitcoin ledger + personal device + your own AI
 
 ## In the future
 
-- Agent Key controlled authorization (limited by asset, amount and block) lets Agents act on their own within the rules, and the master private key stays with the user.
+- Agent Key (proposed): controlled authorization, limited by asset, amount and block, would let Agents act on their own within the rules while the master private key stays with the user.
 - A multi-node Agent execution network.
 - More protocols and extensions, plug-and-play.
 
@@ -105,7 +107,7 @@ From digital money to smart contracts and DeFi, blockchains keep widening how va
 
 As AI moves from assistant tools to autonomous Agents, Bitcoin’s meaning extends from “storing value” to “how machines exchange value”. Agents understand intent and interact; Bitcoin gives value exchange a verifiable ledger.
 
-The Bitcoin ecosystem has been exploring for 17 years. From Ordinals, BRC-20 and Runes to Atomicals, RGB++, Taproot Assets, the Lightning Network and L2s, every protocol and extension brought new apps, assets, communities and culture. Some created works, some built protocols, some kept maintaining tools. Each wave left names behind, and many unfinished dreams.
+The Bitcoin ecosystem has spent 17 years exploring. From Ordinals, BRC-20 and Runes to Atomicals, RGB++, Taproot Assets, the Lightning Network and L2s, every protocol and extension brought new apps, assets, communities and culture. Some created works, some built protocols, some kept maintaining tools. Each wave left names behind, and many unfinished dreams.
 
 ### Bitcoin ecosystem in figures
 
@@ -163,6 +165,6 @@ We chose to build the underlying system and protocol standard from zero, free of
 
 The AIBRC protocol has no founder and no team. Docs are CC0 and code is MIT, fully open source.
 
-We all love Bitcoin this much. This pure love — for decentralization, monetary freedom and technological ideals — is where AiBTC began and what brings its global community together.
+We love Bitcoin. That pure love — for decentralization, monetary freedom and technological ideals — is where AiBTC began and what brings its global community together.
 
 Math over promises, rules over individuals. This is an ecosystem experiment between BTC and AI.
