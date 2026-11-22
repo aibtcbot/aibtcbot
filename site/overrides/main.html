@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 
+{% block extrahead %}
+  {{ super() }}
+  <link rel="describedby" href="{{ config.site_url | e }}llms.txt">
+{% endblock %}
+
 {% block announce %}
 <a href="https://github.com/aibrc-code/aibrc" target="_blank" rel="noopener noreferrer">AIBRC protocol · github.com/aibrc-code/aibrc</a>
 {% endblock %}

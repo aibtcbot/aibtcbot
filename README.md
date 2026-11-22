@@ -4,7 +4,7 @@ From @, AI understands BTC and executes Smart Covenants, while people + Agents v
 
 AIBRC mainnet activation height: Bitcoin block 976720.
 
-For AI: [llms.txt](llms.txt) · [llms-full.txt](llms-full.txt) · Protocol repo: [github.com/aibrc-code/aibrc](https://github.com/aibrc-code/aibrc)
+Protocol repo: [github.com/aibrc-code/aibrc](https://github.com/aibrc-code/aibrc)
 
 ## AiBTC & AIBRC
 
