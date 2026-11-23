@@ -100,6 +100,7 @@ Bitcoin ledger + personal device + your own AI
 | [07 Atom Unit Protocol](docs/atom-unit.md) | Where reserves are deposited and withdrawn; users and their Agents can verify their own on-chain reserves |
 | [Build tools](docs/build-tools.md) · [Support](docs/support.md) | Public API, MCP, npm and integration examples; wallet troubleshooting, deposits, withdrawals and official contacts |
 | [Product FAQ](FAQ.md) · [Wallet signatures](docs/wallet-signatures.md) · [Code examples](docs/code-examples.md) · [Reference proof script](docs/reference-proof.md) | Product answers for people and Agents; signing messages, permission scopes and PSBT excerpts; selected integration examples; Python reference and downloads |
+| [Audit & Open Source](docs/audit-and-open-source.md) | R1 audit report, verification method and public endpoints |
 
 ## Why we build
 

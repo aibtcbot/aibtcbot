@@ -58,6 +58,7 @@ nav:
       - Wallet signatures: docs/wallet-signatures.md
       - Reference proof script: docs/reference-proof.md
   - Support: docs/support.md
+  - "Audit & Open Source": docs/audit-and-open-source.md
   - Product FAQ: FAQ.md
 validation:
   nav:

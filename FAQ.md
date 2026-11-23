@@ -359,3 +359,13 @@ BTC goes to the account's fixed deposit address shown on the Assets page and is 
 33. How are BTC and AIBRC withdrawn?
 
 Choose the asset on the Assets page and check the amount, receiving address and fees. BTC withdrawal uses mutual signing: the receiving address is authorized by the user's signature, and withdrawals pay only to that address; Atom Unit verifies, then signs. AIBRC withdrawal, open after graduation, uses co-signing: the user's wallet and Atom Unit each sign their own inputs in the same Bitcoin transaction. After broadcast, the original withdrawal record and TxID show the confirmation progress.
+
+## Audit and open source
+
+34. Is AiBTC audited?
+
+Yes. AiBTC is built for trustless audit. The R1 smart contract is deployed at the same address on Ethereum, BNB Chain and Base (0xed976e7b95d099c60318ef848c73d584ee5eb08a), with verified source (Exact Match) on Etherscan and Basescan and a public R1 audit report. Every public record enters an RFC 9162 Merkle tree and each batch is anchored to Bitcoin with OpenTimestamps. With Verification Method v2 and the Python reference script, users, Agents and any third party recompute the result independently.
+
+35. What can I check myself, and where is the code?
+
+R1 contract source: [Etherscan](https://etherscan.io/address/0xed976e7b95d099c60318ef848c73d584ee5eb08a#code), [Basescan](https://basescan.org/address/0xed976e7b95d099c60318ef848c73d584ee5eb08a#code), [BscScan](https://bscscan.com/address/0xed976e7b95d099c60318ef848c73d584ee5eb08a#code). Verification method, AI prompt and public endpoints: [docs/verification](docs/verification/README.md). Reference script and checksum: [proofs](docs/reference-proof.md). Protocol specification, codec source and test vectors: [github.com/aibrc-code/aibrc](https://github.com/aibrc-code/aibrc) (MIT).

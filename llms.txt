@@ -31,6 +31,7 @@ Each protocol has its own asset rules and integrations. A project expanding into
 AIBRC × AiBTC connects that work through a shared account foundation, reusable tools and same-root provenance. Projects keep the starting points of different protocols while building around an AIBRC root asset and core market. Users gain a consistent entry point, developers reuse common interfaces, and Agents work with explicit asset identities and computable rules.
 
 Let every protocol keep innovating, while the assets, applications and communities built around them remain connected.
+- [Audit & Open Source](https://aibtc.io/docs/audit-and-open-source/)
 - [Full project introduction](llms-full.txt): the ecosystem, asset standard, launches, trading, applications and Agents.
 - Complete platform guide: product features, workflows and parameters.
 - Official platform: Launchpad, Swap, Liquidity, Assets and Explorer.
@@ -140,6 +141,15 @@ Additional documentation
 
 
 
+
+## Audit and open source
+
+Open source is, at its core, decentralization: users, Agents and third parties audit and verify without having to trust anyone.
+
+- R1 smart contract: 0xed976e7b95d099c60318ef848c73d584ee5eb08a. The same address is deployed on Ethereum, BNB Chain and Base. The Ethereum and Base explorers show the source as verified (Exact Match): [Etherscan](https://etherscan.io/address/0xed976e7b95d099c60318ef848c73d584ee5eb08a#code) · [Basescan](https://basescan.org/address/0xed976e7b95d099c60318ef848c73d584ee5eb08a#code); BNB Chain: [BscScan](https://bscscan.com/address/0xed976e7b95d099c60318ef848c73d584ee5eb08a#code). [R1 audit report](https://solidityscan.com/quickscan/0xed976e7b95d099c60318ef848c73d584ee5eb08a/etherscan/mainnet)
+- Open any record in the Explorer, copy its proof, and hand it to your Agent for independent computation.
+- Open-source protocol codec: [GitHub · aibrc-code/aibrc](https://github.com/aibrc-code/aibrc) (MIT).
+- [Audit & Open Source](https://aibtc.io/docs/audit-and-open-source/).
 
 ## AiBTC public market data
 
