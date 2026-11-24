@@ -3,6 +3,10 @@
 {% block extrahead %}
   {{ super() }}
   <link rel="describedby" href="{{ config.site_url | e }}llms.txt">
+  {% if page and page.file.src_uri == "docs/airdrop-lookup.md" %}
+    <link rel="stylesheet" href="{{ 'site/assets/airdrop-lookup/page.css' | url }}">
+    <script type="module" src="{{ 'site/assets/airdrop-lookup/page.mjs' | url }}"></script>
+  {% endif %}
 {% endblock %}
 
 {% block announce %}

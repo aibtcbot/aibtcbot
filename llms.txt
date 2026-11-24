@@ -32,6 +32,7 @@ AIBRC × AiBTC connects that work through a shared account foundation, reusable 
 
 Let every protocol keep innovating, while the assets, applications and communities built around them remain connected.
 - [Audit & Open Source](https://aibtc.io/docs/audit-and-open-source/)
+- [Airdrop Address Lookup](https://aibtc.io/docs/airdrop-lookup/): Address holds ORDI or DOG•GO•TO•THE•MOON. Log in with it at aibtc.bot from November 25, 2026 to January 25, 2027 (UTC). 30M AiBTC, split equally per address. ORDI: all holder addresses at Bitcoin block 977366 — 28,940 addresses. DOG•GO•TO•THE•MOON: 82,114 holder addresses, taken at Bitcoin blocks 977366–977370.
 - [Full project introduction](llms-full.txt): the ecosystem, asset standard, launches, trading, applications and Agents.
 - Complete platform guide: product features, workflows and parameters.
 - Official platform: Launchpad, Swap, Liquidity, Assets and Explorer.

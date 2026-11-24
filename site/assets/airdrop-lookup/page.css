@@ -1,0 +1,61 @@
+#airdrop-lookup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-block: 20px 12px;
+}
+
+#airdrop-address {
+  flex: 1 1 250px;
+  min-width: 0;
+  min-height: 44px;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-radius: 5px;
+  background: var(--md-code-bg-color);
+  color: var(--md-default-fg-color);
+  padding-inline: 12px;
+  font: inherit;
+}
+
+#airdrop-address::placeholder {
+  color: var(--md-default-fg-color--light);
+}
+
+#airdrop-address[aria-invalid="true"] {
+  border-color: #f1a7a0;
+}
+
+#airdrop-lookup .md-button {
+  min-height: 44px;
+  padding-block: 6px;
+  cursor: pointer;
+  background: #e6e7ec;
+  border-color: #e6e7ec;
+  color: #111214;
+}
+
+#airdrop-lookup .md-button:is(:hover, :focus-visible) {
+  background: #fff;
+  border-color: #fff;
+  color: #111214;
+}
+
+#airdrop-result:not(:empty) {
+  padding: 12px 16px;
+  border-inline-start: 3px solid var(--md-default-fg-color--lighter);
+  background: var(--md-code-bg-color);
+}
+
+#airdrop-result[data-state="found"] {
+  border-color: #9cc9a9;
+}
+
+#airdrop-result p {
+  margin-block: 4px;
+}
+
+@media (max-width: 560px) {
+  #airdrop-lookup > * {
+    flex: 1 1 100%;
+  }
+}
