@@ -82,6 +82,8 @@ Click "Copy proof" to get a JSON pack (schema AIBRC_EXPLORER_PROOF_COPY_V2):
   record               ← canonical_payload + event_hash + previous_event_hash
   inclusion            ← this record's Merkle inclusion proof
   display              ← human-readable fields
+  market_key           ← this record's market key, the same one list_markets / get_market use;
+                         null when the record has no market
   checkpoint           ← canonical_manifest + checkpoint_digest
   ots                  ← OTS file, base64
   bitcoin              ← block height / hash / time
