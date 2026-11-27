@@ -43,7 +43,26 @@ body { background: #111214; }
 .md-header__button.md-logo { display: inline-flex; align-items: center; padding: 4px; }
 .md-header__button.md-logo img { width: 28px; height: 28px; }
 .md-nav__title .md-logo { display: none; }
-.md-header__title { font-weight: 600; letter-spacing: .045em; }
+.md-header__title {
+  flex: 0 1 6.2rem;
+  min-width: 0;
+  font-weight: 600;
+  letter-spacing: .045em;
+}
+.md-header__title--active { flex-basis: min(27vw, 17rem); }
+.aibtc-platform-link {
+  display: inline-flex;
+  align-items: center;
+  flex: none;
+  min-height: 44px;
+  margin-inline-end: auto;
+  padding-inline: 8px;
+  color: #e6e7ec;
+  font-size: 14px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.aibtc-platform-link:hover { color: #fff; text-decoration: underline; text-underline-offset: 4px; }
 .md-header__source {
   display: block;
   width: auto;
@@ -161,7 +180,9 @@ label.md-header__button:focus-visible {
 }
 @media screen and (max-width: 44.984375em) {
   .md-header__inner { min-height: 56px; padding-inline: 8px; }
-  .md-header__title { margin-inline: 8px; font-size: 17px; }
+  .md-header__title { flex-basis: 3.2rem; margin-inline: 8px; font-size: 17px; }
+  .md-header__title--active { flex-basis: min(26vw, 5.5rem); }
+  .aibtc-platform-link { padding-inline: 4px; font-size: 13px; }
   .aibtc-github { padding-inline: 6px; font-size: 13px; }
   .md-content__inner { margin: 24px 20px 48px; }
   .md-typeset { font-size: 15px; line-height: 1.8; }
@@ -169,6 +190,12 @@ label.md-header__button:focus-visible {
   .md-typeset h2 { font-size: 21px; margin-top: 34px; }
   .md-typeset pre > code { padding: 14px; }
   .md-typeset table:not([class]) { font-size: 13px; }
+}
+@media screen and (max-width: 360px) {
+  .md-header__inner { padding-inline: 4px; }
+  .md-header__inner > .md-header__button { margin-inline: 2px; padding-inline: 6px; }
+  .md-header__title { margin-inline: 2px; font-size: 15px; letter-spacing: 0; }
+  .aibtc-platform-link { padding-inline: 2px; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
