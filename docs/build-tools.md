@@ -155,12 +155,12 @@ All four tools are read-only: they do not read personal assets, sign or place or
 
 ## 4. npm: run MCP locally {#build-s4}
 
-The npm package @aibtcbot/mcp runs a local stdio MCP server with the same public data and the same four tools as the official hosted MCP. It is a local way to run MCP, not a separate trading interface.
+The npm package @aibtcbot/mcp runs a local stdio MCP server with the same public data and the same four tools as the official hosted MCP, plus three AI Verification tools. It is a local way to run MCP, not a separate trading interface.
 
 Requires Node.js 20 or later. Start command:
 
 ```sh
-npx -y @aibtcbot/mcp@0.2.0
+npx -y @aibtcbot/mcp@0.3.0
 ```
 
 Clients that support local MCP can use this configuration:
@@ -170,7 +170,7 @@ Clients that support local MCP can use this configuration:
   "mcpServers": {
     "aibtc": {
       "command": "npx",
-      "args": ["-y", "@aibtcbot/mcp@0.2.0"]
+      "args": ["-y", "@aibtcbot/mcp@0.3.0"]
     }
   }
 }

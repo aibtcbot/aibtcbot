@@ -125,7 +125,7 @@ Report each result from the material actually copied
 | Manifest fingerprint | Compute and compare checkpoint_digest |
 | OTS and Bitcoin | Check the digest, attestation and independent block |
 | Append-only history | Check consistency when two authenticated heads are supplied |
-| Trade recomputation | Apply Method v2 to its matching AMM event and formula version |
+| Trade recomputation | Check fixed-price and AMM trades with their public formulas; bonding-curve trades remain not covered |
 
 Use the [Python reference script](../reference-proof.md) to start with fingerprints and Merkle checks. The [verification guide](../verification/README.md) walks through the Bitcoin anchor, trade calculations and comparison with current pool reserves.
 

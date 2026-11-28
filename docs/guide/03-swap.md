@@ -416,7 +416,7 @@ The last price is a market reference; actual buys and sells follow the quote gen
 Market cap = Last price × Fixed total supply
 ```
 
-For an asset with a 1 billion supply, it's computed on that 1 billion. Market cap is a valuation metric — not the BTC in the pool, and not what all holders would get by selling at once.
+For an asset with a 1 billion supply, it's computed on that 1 billion. Market cap is a valuation metric — not the BTC in the pool, and not what all holders would get by selling at once. For a fixed-price launch, market cap before graduation shows the BTC raised so far; after graduation it follows the formula above.
 
 ### Volume
 

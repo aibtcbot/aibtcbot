@@ -207,6 +207,8 @@ If the launch is paused or enters a name-conflict or similar handling state, an 
 
 After the market opens, users buy and sell AIBRC on the bonding curve. Price is computed from reserves: buys add to the real BTC reserve, sells reduce it, and graduation progress moves with it.
 
+Fixed-price launches have no creator first buy. Of the 1 billion tokens, 500 million are for pre-graduation trading and 500 million seed the pool. Choose a target of 0.1, 0.2, 0.5, 1, 2, 5 or 10 BTC at creation. Buys and sells use the same launch price with a 0.5% fee. When the target is reached, all BTC principal raised enters the liquidity pool of the same market.
+
 ### Issuance Parameters
 
 - AIBRC total supply: 1 billion

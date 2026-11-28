@@ -59,6 +59,7 @@ nav:
       - Reference proof script: docs/reference-proof.md
   - Support: docs/support.md
   - "Audit & Open Source": docs/audit-and-open-source.md
+  - AI Verification: docs/ai-verify.md
   - Airdrop Address Lookup: docs/airdrop-lookup.md
   - Product FAQ: FAQ.md
 validation:

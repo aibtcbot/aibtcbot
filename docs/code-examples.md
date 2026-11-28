@@ -37,7 +37,7 @@ For a client that supports local stdio MCP:
   "mcpServers": {
     "aibtc": {
       "command": "npx",
-      "args": ["-y", "@aibtcbot/mcp@0.2.0"]
+      "args": ["-y", "@aibtcbot/mcp@0.3.0"]
     }
   }
 }

@@ -310,7 +310,7 @@ The public MCP provides four read-only market tools: find_market, list_markets, 
 
 An Agent can find an asset by name, ticker or official market link, read its price, market capitalization, reserves and market phase, and organize recent trading activity into an explanation or watchlist. When a query has several matches, it can present the candidates and continue with the selected market.
 
-The hosted connection is https://aibtc.bot/api/v1/public/mcp. The npm package @aibtcbot/mcp runs the same tools locally. Both access public data without requiring a sign-in or API key.
+The hosted connection is https://aibtc.bot/api/v1/public/mcp. The npm package @aibtcbot/mcp runs the same tools locally, plus three AI Verification tools. Both access public data without requiring a sign-in or API key.
 
 The current public scope covers the top 250 markets by market capitalization, with the latest 50 public trades per market. Snapshots usually refresh about every 60 seconds and include source-time and status information.
 

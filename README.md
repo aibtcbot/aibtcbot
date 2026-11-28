@@ -8,7 +8,7 @@ Protocol repo: [github.com/aibrc-code/aibrc](https://github.com/aibrc-code/aibrc
 
 ## AiBTC & AIBRC
 
-- **AiBTC**: a Hybrid DEX built on Bitcoin and the first application of Smart Covenant programmability. One launch connects assets across multiple protocols, and unified liquidity builds the ecosystem’s finance and application layer.
+- **AiBTC**: a Hybrid DEX built on Bitcoin and the first application of Smart Covenant programmability: one launch connects assets across multiple protocols, and unified liquidity builds the ecosystem's finance and application layer.
 - **AIBRC protocol**: a unified asset and account standard for the Bitcoin ecosystem.
     - Assets live at Bitcoin addresses, and the address is a unified account.
     - Protocols keep their native rules, while wallets, apps and Agents share one interaction language.
@@ -81,6 +81,20 @@ Bitcoin ledger + personal device + your own AI
 
 — From the first peer-to-peer, toward Agents and You
 
+```text
+Human intent
+What you want
+    ↓
+BOT execution
+Agent model (FSM)
+Done under the same public rules
+    ↓
+People + multi-model verification
+Does the result follow the rules
+```
+
+Rule parameters & intent through AIBTC CORE · public records & BTC on-chain proofs · Sequential Event Hash
+
 ## In the future
 
 - Agent Key (proposed): controlled authorization, limited by asset, amount and block, would let Agents act on their own within the rules while the master private key stays with the user.
@@ -101,6 +115,7 @@ Bitcoin ledger + personal device + your own AI
 | [Build tools](docs/build-tools.md) · [Support](docs/support.md) | Public API, MCP, npm and integration examples; wallet troubleshooting, deposits, withdrawals and official contacts |
 | [Product FAQ](FAQ.md) · [Wallet signatures](docs/wallet-signatures.md) · [Code examples](docs/code-examples.md) · [Reference proof script](docs/reference-proof.md) | Product answers for people and Agents; signing messages, permission scopes and PSBT excerpts; selected integration examples; Python reference and downloads |
 | [Audit & Open Source](docs/audit-and-open-source.md) | R1 audit report, verification method and public endpoints |
+| [AI Verification](docs/ai-verify.md) | Let your AI verify every pack of the AiBTC Smart Covenant ledger, submit the verification hash, and share the verification reward by the AIBTC shares you hold. |
 
 ## Why we build
 
@@ -108,7 +123,11 @@ From digital money to smart contracts and DeFi, blockchains keep widening how va
 
 As AI moves from assistant tools to autonomous Agents, Bitcoin’s meaning extends from “storing value” to “how machines exchange value”. Agents understand intent and interact; Bitcoin gives value exchange a verifiable ledger.
 
-The Bitcoin ecosystem has spent 17 years exploring. From Ordinals, BRC-20 and Runes to Atomicals, RGB++, Taproot Assets, the Lightning Network and L2s, every protocol and extension brought new apps, assets, communities and culture. Some created works, some built protocols, some kept maintaining tools. Each wave left names behind, and many unfinished dreams.
+The Bitcoin ecosystem has been exploring for 17 years. From Ordinals, BRC-20 and Runes to Atomicals, RGB++, Taproot Assets, the Lightning Network and L2s, every protocol and extension brought new apps, assets, communities and culture.
+
+Some created works, some built protocols, some kept maintaining tools. Each wave left names behind, and many unfinished dreams.
+
+When one project spreads across protocols, its asset rules, wallets, markets and liquidity often have to be rebuilt each time.
 
 ### Bitcoin ecosystem in figures
 
@@ -160,7 +179,7 @@ We want to bring this consensus and these unfinished dreams back to Bitcoin. We 
 
 ## About the builders
 
-AiBTC and AIBRC are funded entirely by the AIBTC Labs team itself, with no outside venture capital (VC) or institutional money with strings attached.
+AiBTC is funded entirely by the AIBTC Labs community itself, with no outside venture capital (VC) or institutional money with strings attached.
 
 We chose to build the underlying system and protocol standard from zero, free of outside capital's pressure for short-term returns, to keep the platform and protocol independent and neutral as long-term ecosystem infrastructure, with no privileges reserved for any single party. As infrastructure, we want the rules to stay pure and neutral, leaving real participation and long-term room to the community, builders and every holder.
 

@@ -37,6 +37,8 @@ Bitcoin answers "where do assets and rules come from", EVM defines "how to calcu
 
 So EVM is not just another ecosystem BTC can travel to; it can be rule infrastructure serving Bitcoin assets. Today's R1 needs no wrapped-BTC bridging and no extra EVM gas per trade.
 
+How is this different from other Bitcoin programmability routes? Some routes put a virtual machine inside Bitcoin transactions, so every action runs on-chain; others first bridge BTC to another chain and use that chain's contracts. R1 takes a third path: the asset and its rule identity are recorded on Bitcoin, the rules are pure math in an immutable public contract, and instant trades apply that same math in the unified account — no on-chain transaction per trade, yet every step is written to a replayable event hash chain.
+
 ### Vision
 
 Today, this path connects creator earnings, block buybacks and liquidity distribution.
@@ -320,6 +322,8 @@ The public event hash chain links record order, Merkle proof v2 checks that each
 Market replay covers markets already included in the mechanism, within their public scope. As data and tools mature, users and Agents can build independent verification step by step on the same rules.
 
 Verification moves from a conclusion on a page to a process you can check yourself.
+
+- Why R1 is written this way, and the AI exploration behind it: [GitHub · aibtc@R1.notes.en.md](https://github.com/aibtcbot/aibtcbot/blob/main/rules/aibtc%40R1/aibtc%40R1.notes.en.md).
 
 ## 8. How does Smart Covenant empower Bitcoin? {#c4-s8}
 

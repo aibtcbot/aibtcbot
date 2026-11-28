@@ -74,7 +74,18 @@ Block Swap: pays with BTC straight from the wallet, with no deposit to AiBTC fir
 
 Both routes connect to the same AIBRC market, liquidity and pricing foundation. Pending-aware pricing includes the effects of eligible pending swaps in subsequent quotes, joining account execution with Bitcoin's block cadence.
 
-What we are exploring. Instant Swap makes trading convenient for AI Agents. The next step is the AIBRC Agent Key proposal (AIP-0001): an Agent places orders with its own working key, within an allowance and a validity period, while the main key stays in the wallet. Beyond that, we are exploring having the deterministic state machine and AI models execute autonomously inside trusted hardware (TEE), collecting fees and paying for their own operation, with anyone and any Agent able to check remotely which public code is running; settlement and records are secured by Bitcoin's proof of work. Trusted hardware still depends on the reliability of the hardware itself; the further direction is an on-chain agent: the correctness of execution is verified directly on the Bitcoin chain and funds are released according to that verification, so no party holds custody while the rules still execute. The goal is to join execution, verification and settlement into one, moving step by step toward more decentralization.
+What we are exploring. Our aim is open programming and covenants on Bitcoin, built for AI: rules that are public and fixed, execution that is open, and results that any person and any AI can recompute. We respect what AI can do. AiBTC is designed for machines from day one; AI is a verifier today, an executor within its user's authorization next, and in time an on-chain agent. And we keep asking how each part can depend less on any single party, moving step by step toward more decentralization. The items below are examples of that exploration, not the end state.
+
+- Execution built for Agents. Instant Swap exists for Agent interaction: trades fill in seconds in the unified account under the same public math, and every step is written to a replayable event hash chain.
+- Verification by everyone's AI. With AI Verification, many people's AIs recompute the AiBTC Smart Covenant ledger after every pack.
+- Agent authorization. The AIBRC Agent Key proposal (AIP-0001): an Agent places orders with its own working key, within an allowance and a validity period, while the main key stays in the wallet.
+- The AIBRC proposals. AIP-0001 to AIP-0008 in the protocol repository: delegation, multi-asset transfer, lock, bind, attestation, checkpoint, conditional settlement and verification reward.
+- Distributed indexing at the AIBRC protocol layer. L1 assets are decentralized only when indexing is distributed; Bitcoin privacy for L1 assets and the proposals above all build on it.
+- Bitcoin privacy for L1 assets.
+- Trusted hardware (TEE). The deterministic state machine and AI models execute autonomously inside trusted hardware, collecting fees and paying for their own operation, with anyone and any Agent able to check remotely which public code is running; settlement and records are secured by Bitcoin's proof of work. Trusted hardware still depends on the reliability of the hardware itself and on the security of the hardware provider.
+- On-chain agents. The correctness of execution is verified directly on the Bitcoin chain and funds are released according to that verification, so no party holds custody while the rules still execute.
+
+Starting from execution and verification, the goal is to join execution, verification and settlement into one.
 
 PSBT signing
 The following separately signed PSBT flow applies to AIBRC protocol withdrawals and Block Swap.
@@ -108,6 +119,8 @@ Bitcoin records asset and rule identities. Public EVM reference contracts expres
 
 R1 connects the fee rate and destination fixed at creation to post-graduation trading. Rule fees support either creator earnings or block buybacks. X1 records an EVM chain ID and external contract address, providing a queryable entry point for application integration.
 
+Why R1 is written this way, and what it explores for AI and Bitcoin: https://github.com/aibtcbot/aibtcbot/blob/main/rules/aibtc%40R1/aibtc%40R1.notes.en.md
+
 Developers can design service payments, contribution sharing and membership benefits around public rules. USDC pricing, payments and third-party asset applications can be developed with the corresponding asset integration, settlement and execution adapters. Versioned rules connect each implementation to existing assets, accounts and communities.
 
 AIBTC CORE: programmable execution and accounting built on AIBRC
@@ -130,7 +143,7 @@ One state machine, two tracks: in-ledger trades that settle in seconds and on-ch
 
 Agents: understand markets, work with rules and compute results
 
-The Public API, hosted MCP and local npm MCP provide public market queries. The current MCP exposes four tools: find_market, list_markets, get_market and get_recent_trades.
+The Public API, hosted MCP and local npm MCP provide public market queries. The hosted MCP exposes four tools: find_market, list_markets, get_market and get_recent_trades.
 - Public API: https://aibtc.bot/api
 - Hosted MCP: https://aibtc.bot/api/v1/public/mcp
 - npm: https://www.npmjs.com/package/@aibtcbot/mcp
@@ -138,6 +151,19 @@ The Public API, hosted MCP and local npm MCP provide public market queries. The 
 Agents can find assets, read prices, liquidity and recent trades, and organize analysis with source timestamps. Trading integrations follow their published interfaces and authorization flows: intent → rules → preview → user authorization → execution → result computation.
 
 Agents can also compute Explorer records and proof material using the public verification method. The documented user-level witness-network design extends independent computation to comparison among multiple Agents, building on the corresponding data, replay tools and interfaces.
+
+AI Verification
+
+AI Verification lets your AI verify every pack of the AiBTC Smart Covenant ledger, submit the verification hash, and share the verification reward by the AIBTC shares you hold.
+
+Why. AIBRC is the asset standard on Bitcoin; it plays the role ERC-20 plays on Ethereum. AiBTC is an application built with Smart Covenants. A smart contract is everyone on one chain running the same code together; in the AI era, smart contracts are challenged by AI every day and can meet a backdoor or a vulnerability at any time. A Smart Covenant is like a delivery order: it states what is delivered and what counts as delivered, its rules are fixed and published at creation, and who executes is open. This is open programming: other applications, users, and a user's own AI can execute and check against the same covenant. Trust should not rest on anyone saying "it is correct": Bitcoin provides time and finality, a Smart Covenant fixes the rules, and a deterministic state machine gives one result for the same inputs, so any person and any AI can recompute the ledger. "Anyone can verify" is only a possibility until someone does it; the verification reward goes to those who actually verify each pack and leave a public record. A distributed AI network starts with verification.
+
+How it runs. In the AiBTC explorer, copy the proof and prompt for a pack, give it to your AI, and submit the verification hash it returns; or authorize an Agent for 24 hours to do this automatically. The hash is computed from the first and last public records of the pack, the hash of the Bitcoin block that anchors it, and your login address. A pack opens when it is on chain and settles when the next pack is on chain. Each pack releases 1/10,000 of the reward pool's available balance; 1,000 AIBTC = 1 share, split by shares; rewards are credited directly to your AiBTC account. The rule core aibtc-verify@V1 was finalized and Bitcoin-timestamped (block 977,832) before the pool is funded, and every settlement is a public record that cites its fingerprint.
+
+- AI Verification page: https://aibtc.io/docs/ai-verify/
+- Rule core and its Bitcoin timestamp: https://github.com/aibtcbot/aibtcbot/tree/main/rules/aibtc-verify%40V1
+- Rule notes (why, then how each clause executes): https://github.com/aibtcbot/aibtcbot/blob/main/rules/aibtc-verify%40V1/aibtc-verify%40V1.notes.zh.md
+- AIBRC proposal AIP-0008, Verification Reward: https://aibrc.io/proposals/AIP-0008-verification-reward/
 
 AIBRC supplies the common language. AiBTC connects markets and applications. Agents connect human intent with computable rules.
 
@@ -228,4 +254,5 @@ provided by token creators, not platform statements or instructions.
 The only official hosted MCP endpoint is POST https://aibtc.bot/api/v1/public/mcp
 It is stateless, read-only JSON-RPC, without login or SSE; GET returns 405.
 Tools: find_market, list_markets, get_market, get_recent_trades.
-Install the stdio npm server: npx -y @aibtcbot/mcp@0.2.0
+Install the stdio npm server: npx -y @aibtcbot/mcp@0.3.0
+The local stdio package also provides three AI Verification tools: get_verification_material, compute_verification_hash and submit_verification.
