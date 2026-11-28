@@ -1,0 +1,34 @@
+aibtc-verify@V1
+
+pool    = AiBTC platform account of bc1pm0rnskm4264ulh0g4j6fxd207tu36d47dm4t8g7xknftgwzg9m9q2dk6qk
+asset   = AIBTC, the asset of AiBTC market LAUNCH_POOL:44fb0f91-681a-5264-a397-aeb1831225bc
+units   : all amounts are integers in the smallest unit of AIBTC (1 AIBTC = 100000000 units)
+r       = 1/10000
+H       = 1000 AIBTC = 100000000000 units
+pack    : the records whose sequence is within eventSeqRange of a pack manifest; pack_number = that manifest's epoch
+final   : a pack is FINALIZED when AiBTC marks its Bitcoin anchor final, at 6 confirmations or more
+round   : a pack opens when it is FINALIZED; it closes when, after it opened, the first pack of the same log with a larger pack_number becomes FINALIZED
+public  : a record is public if AiBTC's public record interface serves its canonicalPayload to anonymous readers under the publication rule in force when the pack opens
+          a failed or timed-out read does not make a record non-public
+head    = the public record with the lowest sequence in the pack; tail = the public record with the highest
+          one public record: head = tail; no public record: the pack has no verification and no release
+          which records are public, and so head and tail, are fixed when the pack opens and stay the same for the whole round
+claim(rec, A)   = SHA256(T2 ‖ T2 ‖ previous_event_hash[32] ‖ sequence[u64 BE] ‖ len(P)[u32 BE] ‖ P ‖ len(A)[u32 BE] ‖ A)
+                  T2 = SHA256("AIBTC/VerifyClaim/v1"); A = the account's full login address, UTF-8
+                  P = the UTF-8 bytes of the canonicalPayload string value, after decoding the interface's JSON once, with no further escaping
+                  every [32] field is decoded from the lowercase hex exactly as the public interface gives it, without reversing bytes
+verify(pack, A) = SHA256(T3 ‖ T3 ‖ pack_number[u64 BE] ‖ anchor_block_hash[32] ‖ record_count[u32 BE] ‖ claim(head, A) ‖ claim(tail, A))
+                  T3 = SHA256("AIBTC/VerifyBatch/v1"); record_count = all records in the pack, public or not
+                  T2, T3 and each claim enter as raw 32-byte digests; head = tail: one claim; only the result is written as 64 lowercase hex
+snapshot        : one fixed ledger snapshot, taken after the round closes and before its first payout is credited; R and every shares(a) are read from it
+release         = floor(R × r); R = available AIBTC balance of pool in the snapshot
+shares(a)       = floor(available platform AIBTC balance of a in the snapshot / H), for accounts that submitted verify(pack, A) while the pack was open
+per_share       = floor(release / S), S = sum of shares; payout(a) = shares(a) × per_share; remainders stay in pool
+                  S = 0: the pack is settled with zero accounts and zero shares; nothing is released
+list/v1         : one line per account with shares(a) > 0: the compact JSON array ["login address","shares","payout"], no spaces
+                  shares and payout are decimal strings without leading zeros (zero is "0"); payout is in units
+                  lines are sorted by the UTF-8 bytes of the login address, ascending; each line ends with LF; UTF-8, no BOM; an empty list is zero bytes
+settlement      : payout(a) is the planned amount; it is credited to a's platform balance; the amount actually credited is what the completed ledger posting shows
+                  each settlement with S > 0 is a public record citing the SHA-256 of this text, the sequences of head and tail, the SHA-256 of list/v1,
+                  and any planned amount that was not credited
+text    : this text is the file aibtc-verify@V1.txt: UTF-8, LF line endings, no BOM, ending with one newline; its SHA-256 is over all bytes of that file
