@@ -30,12 +30,20 @@ Public rules answer "how it should be calculated"; execution records answer "wha
 
 ## 4. What this explores for AI and Bitcoin
 
-The direction is open programming and covenants: the covenant is public, execution is open, and a user with their own AI can complete something peer to peer. It is also the starting point for exploring on-chain agents. We take three steps, each built on the one before.
+The direction is open programming and covenants: the covenant is public, execution is open, and a user with their own AI can complete something peer to peer. It is also the starting point for exploring on-chain agents. AI is heading toward on-chain agents; the verification, authorization and indexing work being done now serves AI and lays the ground for that. The items below are examples of what we are exploring, not the end state. The aim is open programming and covenants: built for AI, with respect for what AI can do, and moving step by step toward more decentralization. The proposals in the AIBRC protocol repository are part of the same exploration. Three of them follow one another, each built on the one before.
 
-- **Step 1 (now): a distributed verification network for Smart Covenants.** After every pack, many people's AIs recompute the AiBTC Smart Covenant ledger. This is AI Verification. Agent authorization follows the idea of the AIBRC Agent Key proposal (AIP-0001); when Agent Key is implemented it replaces the current authorization and connects to Agent market making.
-- **Step 2 (exploration): distributed indexing at the AIBRC protocol layer.** Many independent indexers compute under the same rules, publish their results and compare them. L1 assets are decentralized only when indexing is distributed. Bitcoin privacy for L1 assets, and the proposals in the AIBRC protocol repository (Agent Key, checkpoints, conditional settlement and others), all build on it.
-- **Step 3 (exploration): Bitcoin privacy for L1 assets.** Distributed indexing is the foundation for privacy: it has to exist before privacy for L1 assets can be attempted.
-- **After that (none of this is built):** a user and their own AI executing and checking the same covenant peer to peer; a multi-node Agent execution network; autonomous execution by a deterministic state machine and AI models inside trusted hardware.
+- **Step 1 (now): a distributed verification network for Smart Covenants.** After every pack, many people's AIs recompute the AiBTC Smart Covenant ledger. This is AI Verification. The more verifiers there are and the more spread out they are, the less this ledger depends on what any one party says. Agent authorization follows the idea of the AIBRC Agent Key proposal (AIP-0001): an Agent acts with its own working key, within an allowance and a validity period, while the main key stays in the wallet. When Agent Key is implemented it replaces the current authorization and connects to Agent market making.
+- **Step 2 (exploration): distributed indexing at the AIBRC protocol layer.** The balance of an AIBRC asset on Bitcoin L1 is computed by an indexer replaying Bitcoin blocks under public rules. The exploration is to make this a network: many independent indexers compute under the same rules, publish their results and compare them. L1 assets are decentralized only when indexing is distributed. Bitcoin privacy for L1 assets, and the proposals in the AIBRC protocol repository (Agent Key, checkpoints, conditional settlement and others), all build on it.
+- **Step 3 (exploration): Bitcoin privacy for L1 assets.** To keep amounts and holdings private, the chain can no longer carry them in the clear; it can only carry commitments and proofs. If a single indexer then decided what is valid, everyone would have to trust it; only when many independent indexers validate and compare results can a private transfer be accepted without depending on any one party. So distributed indexing is the foundation for privacy.
+
+After that (none of this is built):
+
+- User-level execution: a user and their own AI execute and check the same covenant peer to peer, without going through any one application.
+- A multi-node Agent execution network: more than one executor, all executing the same rules and checking each other.
+- Trusted hardware (TEE): the deterministic state machine and AI models execute autonomously inside trusted hardware, collecting fees and paying for their own operation, with anyone and any Agent able to check remotely which public code is running. Trusted hardware still depends on the reliability of the hardware itself and on the security of the hardware provider, so it is one step along the way.
+- On-chain agents: the correctness of execution is verified directly on the Bitcoin chain and funds are released according to that verification, so no party holds custody while the rules still execute.
+
+The goal is to join execution, verification and settlement into one, moving step by step toward more decentralization.
 
 Starting from R1, the covenant system can keep exploring more applications through new rule versions, reference addresses and parameter designs, together with matching execution and verification.
 
