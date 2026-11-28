@@ -30,13 +30,13 @@ Public rules answer "how it should be calculated"; execution records answer "wha
 
 ## 4. What this explores for AI and Bitcoin
 
-The direction is open programming and covenants: the covenant is public, execution is open, and a user with their own AI can complete something peer to peer. It is also the starting point for exploring on-chain agents. AI is heading toward on-chain agents; the verification, authorization and indexing work being done now serves AI and lays the ground for that. The items below are examples of what we are exploring, not the end state. The aim is open programming and covenants: built for AI, with respect for what AI can do, and moving step by step toward more decentralization. The proposals in the AIBRC protocol repository are part of the same exploration. Three of them follow one another, each built on the one before.
+The direction is open programming and covenants: the covenant is public, execution is open, and a user with their own AI can complete something peer to peer. It is also the starting point for exploring on-chain agents. AI is heading toward on-chain agents; the verification, authorization and indexing work being done now serves AI and lays the ground for that. The items below are examples of what we are exploring, not the end state. The aim is open programming and covenants: built for AI, with respect for what AI can do, and moving step by step toward more decentralization. The proposals in the AIBRC protocol repository are part of the same exploration. It starts from execution and verification: Instant Swap is execution built for Agent interaction, and AI Verification is verification that everyone's AI can take part in. Three of them follow one another, each built on the one before.
 
 - **Step 1 (now): a distributed verification network for Smart Covenants.** After every pack, many people's AIs recompute the AiBTC Smart Covenant ledger. This is AI Verification. The more verifiers there are and the more spread out they are, the less this ledger depends on what any one party says. Agent authorization follows the idea of the AIBRC Agent Key proposal (AIP-0001): an Agent acts with its own working key, within an allowance and a validity period, while the main key stays in the wallet. When Agent Key is implemented it replaces the current authorization and connects to Agent market making.
 - **Step 2 (exploration): distributed indexing at the AIBRC protocol layer.** The balance of an AIBRC asset on Bitcoin L1 is computed by an indexer replaying Bitcoin blocks under public rules. The exploration is to make this a network: many independent indexers compute under the same rules, publish their results and compare them. L1 assets are decentralized only when indexing is distributed. Bitcoin privacy for L1 assets, and the proposals in the AIBRC protocol repository (Agent Key, checkpoints, conditional settlement and others), all build on it.
 - **Step 3 (exploration): Bitcoin privacy for L1 assets.** To keep amounts and holdings private, the chain can no longer carry them in the clear; it can only carry commitments and proofs. If a single indexer then decided what is valid, everyone would have to trust it; only when many independent indexers validate and compare results can a private transfer be accepted without depending on any one party. So distributed indexing is the foundation for privacy.
 
-After that (none of this is built):
+After that:
 
 - User-level execution: a user and their own AI execute and check the same covenant peer to peer, without going through any one application.
 - A multi-node Agent execution network: more than one executor, all executing the same rules and checking each other.
@@ -56,7 +56,7 @@ Starting from R1, the covenant system can keep exploring more applications throu
 - **The rules belong to no single application (article 10).** Any application infrastructure can reuse the same rules to execute and account for an asset's fixed parameters; AiBTC is the first application infrastructure built on them. So execution is open, which is what open programming means.
 - **The rule fee takes effect only after graduation (article 02).** Before graduation only the 0.5% platform fee applies, and the graduation-triggering trade still uses the pre-graduation rule. So during launch everyone faces the same base fee.
 - **The rule fee has only two destinations (article 06).** All of it goes to buyback, or all of it goes to the creator, chosen at creation. So where each rule fee went can be checked against the parameters.
-- **A reserved directory of 15 entries (article 08).** These names state only possible future topics, not implemented functions. They are in the text so that the direction is public and the boundary is clear.
+- **A reserved directory of 15 entries (article 08).** These names state possible future topics. They are in the text so that the direction is public.
 
 ## 6. Check it yourself
 
