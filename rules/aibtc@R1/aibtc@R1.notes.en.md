@@ -22,7 +22,24 @@ Bitcoin answers "where do assets and rules come from", EVM defines "how to calcu
 
 How is this different from other Bitcoin programmability routes? Some routes put a virtual machine inside Bitcoin transactions, so every action runs on-chain; others first bridge BTC to another chain and use that chain's contracts. R1 takes a third path: the asset and its rule identity are recorded on Bitcoin, the rules are pure math in an immutable public contract, and instant trades apply that same math in the unified account — no on-chain transaction per trade, yet every step is written to a replayable event hash chain.
 
-## 3. Why R1 is written this way
+## 3. What AI does here
+
+Explicit parameters, triggers, formulas and result records give Agents a basis to understand and check trades. People state the goal, tools understand the rules, and execution leaves evidence.
+
+Public rules answer "how it should be calculated"; execution records answer "what actually happened". Verification puts the two together and checks that they match. Large models are good at logical reasoning and weakest where things are ambiguous. Determinism removes the ambiguity, so for an AI, checking one R1 trade is like running a unit test.
+
+## 4. What this explores for AI and Bitcoin
+
+The direction is open programming and covenants: the covenant is public, execution is open, and a user with their own AI can complete something peer to peer. It is also the starting point for exploring on-chain agents. We take three steps, each built on the one before.
+
+- **Step 1 (now): a distributed verification network for Smart Covenants.** After every pack, many people's AIs recompute the AiBTC Smart Covenant ledger. This is AI Verification. Agent authorization follows the idea of the AIBRC Agent Key proposal (AIP-0001); when Agent Key is implemented it replaces the current authorization and connects to Agent market making.
+- **Step 2 (exploration): distributed indexing at the AIBRC protocol layer.** Many independent indexers compute under the same rules, publish their results and compare them. L1 assets are decentralized only when indexing is distributed. Bitcoin privacy for L1 assets, and the proposals in the AIBRC protocol repository (Agent Key, checkpoints, conditional settlement and others), all build on it.
+- **Step 3 (exploration): Bitcoin privacy for L1 assets.** Distributed indexing is the foundation for privacy: it has to exist before privacy for L1 assets can be attempted.
+- **After that (none of this is built):** a user and their own AI executing and checking the same covenant peer to peer; a multi-node Agent execution network; autonomous execution by a deterministic state machine and AI models inside trusted hardware.
+
+Starting from R1, the covenant system can keep exploring more applications through new rule versions, reference addresses and parameter designs, together with matching execution and verification.
+
+## 5. Why R1 is written this way
 
 - **Only parameters and pure math (articles 02 to 06).** Given the trade amount, market stage and rule parameters, there is an explicit method for how fees are computed and how rule fees are split. So every step has one correct result, and any person or AI can recompute it.
 - **The rule identity is written into Bitcoin (article 01).** The parameter line `aibtc@R1:<reference contract address>:T<tax>:C<destination>` is written to the genesis root transaction, in the same transaction as the AIBRC deployment. So which rule an asset uses can be read from Bitcoin, and it cannot change after creation.
@@ -32,23 +49,6 @@ How is this different from other Bitcoin programmability routes? Some routes put
 - **The rule fee takes effect only after graduation (article 02).** Before graduation only the 0.5% platform fee applies, and the graduation-triggering trade still uses the pre-graduation rule. So during launch everyone faces the same base fee.
 - **The rule fee has only two destinations (article 06).** All of it goes to buyback, or all of it goes to the creator, chosen at creation. So where each rule fee went can be checked against the parameters.
 - **A reserved directory of 15 entries (article 08).** These names state only possible future topics, not implemented functions. They are in the text so that the direction is public and the boundary is clear.
-
-## 4. What AI does here
-
-Explicit parameters, triggers, formulas and result records give Agents a basis to understand and check trades. People state the goal, tools understand the rules, and execution leaves evidence.
-
-Public rules answer "how it should be calculated"; execution records answer "what actually happened". Verification puts the two together and checks that they match. Large models are good at logical reasoning and weakest where things are ambiguous. Determinism removes the ambiguity, so for an AI, checking one R1 trade is like running a unit test.
-
-## 5. What this explores for AI and Bitcoin
-
-The direction is open programming and covenants: the covenant is public, execution is open, and a user with their own AI can complete something peer to peer. We take three steps, each built on the one before.
-
-- **Step 1 (now): a distributed verification network for Smart Covenants.** After every pack, many people's AIs recompute the AiBTC Smart Covenant ledger. This is AI Verification. Agent authorization follows the idea of the AIBRC Agent Key proposal (AIP-0001); when Agent Key is implemented it replaces the current authorization and connects to Agent market making.
-- **Step 2 (exploration): distributed indexing at the AIBRC protocol layer.** Many independent indexers compute under the same rules, publish their results and compare them.
-- **Step 3 (exploration): Bitcoin privacy for L1 assets.** Distributed indexing is the foundation for privacy: it has to exist before privacy for L1 assets can be attempted.
-- **After that (none of this is built):** a user and their own AI executing and checking the same covenant peer to peer; a multi-node Agent execution network; autonomous execution by a deterministic state machine and AI models inside trusted hardware.
-
-Starting from R1, the covenant system can keep exploring more applications through new rule versions, reference addresses and parameter designs, together with matching execution and verification.
 
 ## 6. Check it yourself
 

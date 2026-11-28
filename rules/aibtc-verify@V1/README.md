@@ -6,7 +6,7 @@ AI 验证的规则核心。验证奖励的开放、关闭、放出、分配和�
 
 ## Why · 为什么这么做
 
-**Open programming and covenants.** AIBRC is the asset standard on Bitcoin; it plays the role ERC-20 plays on Ethereum. AiBTC is an application built with Smart Covenants. A smart contract is everyone on one chain running the same code together. A Smart Covenant is like a delivery order: it states what is delivered and what counts as delivered, its rules are fixed and published at creation, and who executes is open. Other applications, users, and a user's own AI can execute and check against the same covenant.
+**Open programming and covenants.** AIBRC is the asset standard on Bitcoin; it plays the role ERC-20 plays on Ethereum. AiBTC is an application built with Smart Covenants. A smart contract is everyone on one chain running the same code together. In the AI era, smart contracts are challenged by AI every day and can meet a backdoor or a vulnerability at any time. A Smart Covenant is like a delivery order: it states what is delivered and what counts as delivered, its rules are fixed and published at creation, and who executes is open. Other applications, users, and a user's own AI can execute and check against the same covenant.
 
 **Why verify.** Trust should not rest on anyone saying "it is correct". Bitcoin provides time and finality, a Smart Covenant fixes the rules, and a deterministic state machine gives one result for the same inputs. So any person and any AI can recompute the AiBTC Smart Covenant ledger. The more open execution becomes, the more verification matters.
 
@@ -14,9 +14,9 @@ AI 验证的规则核心。验证奖励的开放、关闭、放出、分配和�
 
 **Why the rule is written this way.** It was finalized and Bitcoin-timestamped before the pool is funded, so the basis for paying exists before the money does. It holds only parameters and formulas, so every step has one correct result that any AI can recompute. The verification hash includes the login address and the anchoring Bitcoin block hash, so it differs per address and cannot be computed before the pack is on chain. Rewards are split by shares held, with no first place.
 
-**Where it leads.** Now: a distributed verification network for Smart Covenants. Next, exploring distributed indexing at the AIBRC protocol layer, which is the foundation for Bitcoin privacy for L1 assets. After that: a user with their own AI acting peer to peer, and on-chain agents.
+**Where it leads.** Now: a distributed verification network for Smart Covenants. Next, exploring distributed indexing at the AIBRC protocol layer. L1 assets are decentralized only when indexing is distributed. Bitcoin privacy for L1 assets, and the proposals in the AIBRC protocol repository (Agent Key, checkpoints, conditional settlement and others), all build on it. After that: a user with their own AI acting peer to peer, and on-chain agents.
 
-**开放式编程和契约。** AIBRC 是比特币上的资产标准，作用相当于以太坊上的 ERC-20。AiBTC 是用智能契约做出来的一个应用。智能合约是一条链上大家一起跑同一段代码。智能契约像一张订单：写明送什么、怎样才算送达，规则在创建时固定并公开，谁来执行是开放的。别的应用、用户、用户自己的 AI，都可以照同一份契约去执行、去核对。
+**开放式编程和契约。** AIBRC 是比特币上的资产标准，作用相当于以太坊上的 ERC-20。AiBTC 是用智能契约做出来的一个应用。智能合约是一条链上大家一起跑同一段代码。AI 时代，智能合约每天都在遭受 AI 的挑战，随时可能遭遇后门和漏洞。智能契约像一张订单：写明送什么、怎样才算送达，规则在创建时固定并公开，谁来执行是开放的。别的应用、用户、用户自己的 AI，都可以照同一份契约去执行、去核对。
 
 **为什么要验证。** 可信不应该来自任何一方的一句「它是对的」。比特币提供时间和终局，智能契约把规则固定，确定性状态机对同样的输入只给出一个结果。所以 AiBTC 的智能契约账本，任何人、任何 AI 都可以自己重算。执行越开放，验证就越重要。
 
@@ -24,7 +24,7 @@ AI 验证的规则核心。验证奖励的开放、关闭、放出、分配和�
 
 **为什么规则写成这样。** 规则先定稿、先盖比特币时间戳，奖励池之后才转入，发放的依据早于资金。规则核心只有参数和公式，每一步只有一个正确结果，任何 AI 都能重算。验证哈希里有登录地址和锚定区块的哈希，所以每个地址的结果不同，打包上链之前谁也算不出。按持有的份数平分，不设第一名。
 
-**往哪里走。** 现在是智能契约的分布式验证网络。接下来探索 AIBRC 协议层的分布式索引，它是 L1 资产比特币隐私的地基。再往后，是用户带着自己的 AI 点对点，和链上智能体。
+**往哪里走。** 现在是智能契约的分布式验证网络。接下来探索 AIBRC 协议层的分布式索引。L1 资产必须有分布式索引，才有去中心。L1 资产的比特币隐私，和 AIBRC 协议仓库里的各项提案（Agent Key、检查点、条件结算等），也都要建在它上面。再往后，是用户带着自己的 AI 点对点，和链上智能体。
 
 ## Files · 文件
 
