@@ -7,8 +7,6 @@ Conditions:
 - Address holds <span translate="no">ORDI</span> or <span translate="no">DOG•GO•TO•THE•MOON</span>
 - Log in with it at aibtc.bot from November 25, 2026 to January 25, 2027 (UTC)
 
-30M <span translate="no">AiBTC</span>, split equally per address.
-
 No forms. No DMs. Log in = registered.
 
 ## Look up your address
@@ -36,6 +34,5 @@ No forms. No DMs. Log in = registered.
 
 - <span translate="no">ORDI</span>: all holder addresses at Bitcoin block 977366 — 28,940 addresses.
 - <span translate="no">DOG•GO•TO•THE•MOON</span>: 82,114 holder addresses, taken at Bitcoin blocks 977366–977370.
-- Source: <span translate="no">UniSat</span> Open API.
 - The full lists and their SHA-256 are published in this repository. Anyone, and any Agent, can check them.
 - The lookup runs in your browser.
